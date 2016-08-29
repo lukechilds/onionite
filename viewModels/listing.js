@@ -1,6 +1,22 @@
 onionoo = require('../lib/onionoo');
 
 module.exports = (req, res) => {
-  onionoo.summary({ limit: 5 })
-    .then(data => res.render('listing.html', { onionoo: data }));
+  onionoo
+    .summary({ search: 'jug' })
+    .then(summary => {
+      const nodes = summary.relays.concat(summary.bridges);
+      return Promise.all(nodes.map(node => onionoo.details({ lookup: node.f || node.h })));
+    })
+    .then(summaryDetails => {
+      const nodes = summaryDetails.map(details => {
+        if(details.relays[0]) {
+          details.relays[0].type = 'relay';
+          return details.relays[0];
+        } else if(details.bridges[0]) {
+          details.bridges[0].type = 'bridge';
+          return details.bridges[0];
+        }
+      });
+      return res.render('listing.html', { onionoo: nodes });
+    });
 }
