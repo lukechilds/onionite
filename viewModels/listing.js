@@ -1,3 +1,6 @@
+onionoo = require('../lib/onionoo');
+
 module.exports = (req, res) => {
-  res.render('listing.html');
+  onionoo.summary({ limit: 5 })
+    .then(data => res.render('listing.html', { onionoo: data }));
 }
