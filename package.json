@@ -3,9 +3,13 @@
   "version": "0.0.0",
   "description": "Explore the Tor network without JS",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "express": "^4.14.0",
+    "nunjucks": "^2.4.2"
+  },
   "devDependencies": {},
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
