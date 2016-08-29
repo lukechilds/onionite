@@ -1,2 +1,25 @@
 Hello World!
-<pre>{{ onionoo }}</pre>
+<table>
+  <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Bandwidth</th>
+      <th>Uptime</th>
+      <th>Country</th>
+      <th>Flags</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for node in nodes %}
+    <tr>
+      <td>{{ node.nickname }}</td>
+      <td>{{ node.advertised_bandwidth }}</td>
+      <td>{{ node.last_restarted if node.running else 'Down' }}</td>
+      <td>{{ node.region_name }}</td>
+      <td>{{ node.flags }}</td>
+      <td>{{ node.type }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

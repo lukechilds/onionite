@@ -17,6 +17,6 @@ module.exports = (req, res) => {
           return details.bridges[0];
         }
       });
-      return res.render('listing.html', { onionoo: nodes });
+      return res.render('listing.html', { nodes: nodes });
     });
 }
