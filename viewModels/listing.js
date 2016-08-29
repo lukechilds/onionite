@@ -2,7 +2,11 @@ onionoo = require('../lib/onionoo');
 
 module.exports = (req, res) => {
   onionoo
-    .summary({ search: 'jug' })
+    .summary({
+      limit: 10,
+      order: '-consensus_weight',
+      running: true
+    })
     .then(summary => {
       const nodes = summary.relays.concat(summary.bridges);
       return Promise.all(nodes.map(node => onionoo.details({ lookup: node.f || node.h })));
