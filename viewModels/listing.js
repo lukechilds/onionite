@@ -1,4 +1,4 @@
-onionoo = require('onionoo');
+const onionoo = require('onionoo');
 
 module.exports = (req, res) => {
   onionoo
