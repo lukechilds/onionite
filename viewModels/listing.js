@@ -1,4 +1,4 @@
-onionoo = require('../lib/onionoo');
+onionoo = require('onionoo');
 
 module.exports = (req, res) => {
   onionoo
