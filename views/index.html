@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tor Explorer</title>
+  </head>
+  <body>
+
+    <header>
+      <h1>Tor Explorer</h1>
+      <form>
+        <label>
+          Search
+          <input type="search" name="s" value="{{ req.query.s }}">
+        </label>
+      </form>
+    </header>
+
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+
+    <footer>
+      <a target="_blank" href="https://github.com/lukechilds/tor-explorer">Source code</a> - <a target="_blank" href="https://github.com/lukechilds/tor-explorer/issues">Report a bug</a>
+    </footer>
+
+  </body>
+</html>
