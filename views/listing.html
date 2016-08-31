@@ -1,25 +1,36 @@
-Hello World!
-<table>
-  <thead>
-    <tr>
-      <th>Nickname</th>
-      <th>Bandwidth</th>
-      <th>Uptime</th>
-      <th>Country</th>
-      <th>Flags</th>
-      <th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-  {% for node in nodes %}
-    <tr>
-      <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
-      <td>{{ node.advertised_bandwidth }}</td>
-      <td>{{ node.last_restarted if node.running else 'Down' }}</td>
-      <td>{{ node.country_name }}</td>
-      <td>{{ node.flags }}</td>
-      <td>{{ node.type }}</td>
-    </tr>
-  {% endfor %}
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tor Explorer</title>
+  </head>
+  <body>
+
+    Hello World!
+    <table>
+      <thead>
+        <tr>
+          <th>Nickname</th>
+          <th>Bandwidth</th>
+          <th>Uptime</th>
+          <th>Country</th>
+          <th>Flags</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for node in nodes %}
+        <tr>
+          <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
+          <td>{{ node.advertised_bandwidth }}</td>
+          <td>{{ node.last_restarted if node.running else 'Down' }}</td>
+          <td>{{ node.country_name }}</td>
+          <td>{{ node.flags }}</td>
+          <td>{{ node.type }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+
+  </body>
+</html>
