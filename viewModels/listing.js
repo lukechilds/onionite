@@ -7,7 +7,7 @@ module.exports = (req, res) => {
     limit: 10
   };
   if(req.query.s) {
-    title = `Search results for "${req.query.s}"`;
+    title = `Search results for "${req.query.s}":`;
     query.search = req.query.s;
     if(req.query.p) {
       query.offset = (query.limit * req.query.p) - query.limit;
