@@ -1,4 +1,4 @@
-const onionoo = require('onionoo');
+const tor = require('../lib/tor');
 
 module.exports = (req, res) => {
 
@@ -12,22 +12,7 @@ module.exports = (req, res) => {
     query.running = true;
   }
 
-  onionoo.summary(query)
-    .then(summary => {
-      const nodes = summary.relays.concat(summary.bridges);
-      return Promise.all(nodes.map(node => onionoo.details({ lookup: node.f || node.h })));
-    })
-    .then(summaryDetails => {
-      const nodes = summaryDetails
-        .map(details => {
-          if(details.relays[0]) {
-            details.relays[0].type = 'relay';
-            return details.relays[0];
-          } else if(details.bridges[0]) {
-            details.bridges[0].type = 'bridge';
-            return details.bridges[0];
-          }
-        });
-      return res.render('listing.html', { nodes: nodes });
-    });
+  tor.listNodes(query).then(nodes => res.render('listing.html', {
+    nodes: nodes
+  }));
 }
