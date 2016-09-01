@@ -20,7 +20,7 @@
       <td>{{ node.last_restarted if node.running else 'Down' }}</td>
       <td>{{ node.country_name }}</td>
       <td>{{ node.flags | join(', ') }}</td>
-      <td>{{ node.type }}</td>
+      <td>{{ node.type | title }}</td>
     </tr>
     {% endfor %}
   </tbody>
