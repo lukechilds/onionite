@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.14.0",
+    "humanize": "0.0.9",
     "nunjucks": "^2.4.2",
     "onionoo": "^0.3.1"
   },

@@ -16,7 +16,7 @@
     {% for node in nodes %}
     <tr>
       <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
-      <td>{{ node.advertised_bandwidth }}</td>
+      <td>{{ node | bandwidth }}</td>
       <td>{{ node.last_restarted if node.running else 'Down' }}</td>
       <td>{{ node.country_name }}</td>
       <td>{{ node.flags | join(', ') }}</td>
