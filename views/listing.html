@@ -17,7 +17,7 @@
     <tr>
       <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
       <td>{{ node | bandwidth }}</td>
-      <td>{{ node.last_restarted if node.running else 'Down' }}</td>
+      <td>{{ node | uptime }}</td>
       <td>{{ node.country_name }}</td>
       <td>{{ node.flags | join(', ') }}</td>
       <td>{{ node.type | title }}</td>
