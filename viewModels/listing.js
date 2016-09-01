@@ -1,12 +1,18 @@
 const onionoo = require('onionoo');
 
 module.exports = (req, res) => {
-  onionoo
-    .summary({
-      limit: 10,
-      order: '-consensus_weight',
-      running: true
-    })
+
+  const query = {
+    limit: 10
+  };
+  if(req.query.s) {
+    query.search = req.query.s;
+  } else {
+    query.order = '-consensus_weight';
+    query.running = true;
+  }
+
+  onionoo.summary(query)
     .then(summary => {
       const nodes = summary.relays.concat(summary.bridges);
       return Promise.all(nodes.map(node => onionoo.details({ lookup: node.f || node.h })));
