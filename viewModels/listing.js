@@ -14,8 +14,12 @@ module.exports = (req, res) => {
     query.running = true;
   }
 
-  tor.listNodes(query).then(nodes => res.render('listing.html', {
-    title: title,
-    nodes: nodes
-  }));
+  tor.listNodes(query)
+    .then(nodes => res.render('listing.html', {
+      title: title,
+      nodes: nodes
+    }))
+    .catch(error => res.render('listing.html', {
+      error: error
+    }));
 }
