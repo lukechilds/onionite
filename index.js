@@ -4,10 +4,10 @@ const viewModel = require('./viewModels');
 const app       = express();
 const port      = process.env.port || 3000;
 
-app.set('nunjuckEnv', nunjucks.configure('views', { express: app }));
+app.set('nunjucksEnv', nunjucks.configure('views', { express: app }));
 
 app.use((req, res, next) => {
-  req.app.settings.nunjuckEnv
+  req.app.settings.nunjucksEnv
     .addGlobal('req', req)
     .addGlobal('res', res);
 
