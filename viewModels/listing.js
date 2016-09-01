@@ -9,6 +9,9 @@ module.exports = (req, res) => {
   if(req.query.s) {
     title = `Search results for "${req.query.s}"`;
     query.search = req.query.s;
+    if(req.query.p) {
+      query.offset = (query.limit * req.query.p) - query.limit;
+    }
   } else {
     query.order = '-consensus_weight';
     query.running = true;
