@@ -20,7 +20,8 @@ module.exports = (req, res) => {
   tor.listNodes(query)
     .then(nodes => res.render('listing.html', {
       title: title,
-      nodes: nodes
+      nodes: nodes,
+      numOfNodes: query.limit
     }))
     .catch(error => res.render('listing.html', {
       error: error
