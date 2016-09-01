@@ -19,7 +19,7 @@
       <td>{{ node.advertised_bandwidth }}</td>
       <td>{{ node.last_restarted if node.running else 'Down' }}</td>
       <td>{{ node.country_name }}</td>
-      <td>{{ node.flags }}</td>
+      <td>{{ node.flags | join(', ') }}</td>
       <td>{{ node.type }}</td>
     </tr>
     {% endfor %}
