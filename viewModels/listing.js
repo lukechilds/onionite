@@ -2,10 +2,12 @@ const tor = require('../lib/tor');
 
 module.exports = (req, res) => {
 
+  let title = 'Top 10 nodes by consensus weight';
   const query = {
     limit: 10
   };
   if(req.query.s) {
+    title = `Search results for "${req.query.s}"`;
     query.search = req.query.s;
   } else {
     query.order = '-consensus_weight';
@@ -13,6 +15,7 @@ module.exports = (req, res) => {
   }
 
   tor.listNodes(query).then(nodes => res.render('listing.html', {
+    title: title,
     nodes: nodes
   }));
 }
