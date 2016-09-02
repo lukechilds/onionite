@@ -17,5 +17,6 @@ app.use((req, res, next) => {
 });
 
 app.get('/', controllers.listing);
+app.get('/node/:id', controllers.node);
 
 app.listen(port, () => console.log(`Tor Explorer listening on port ${port}`));
