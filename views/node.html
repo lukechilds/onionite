@@ -6,6 +6,11 @@
     <h2>{{ 'Invalid node' if error.statusCode == 400 else error.statusMessage }}</h2>
   {% else %}
     <h2>{{ node.type | title }}: {{ node | name }}</h2>
+
+    <section class="status">
+      <h3>Status</h3>
+      {{ node | status }}
+    </section>
   {% endif %}
 
 {% endblock %}
