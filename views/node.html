@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block main %}
+
+  {% if error %}
+    <h2>{{ 'Invalid node' if error.statusCode == 400 else error.statusMessage }}</h2>
+  {% else %}
+    <pre>{{ node | dump }}</pre>
+  {% endif %}
+
+{% endblock %}
