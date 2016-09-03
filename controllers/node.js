@@ -1,3 +1,5 @@
+const tor = require('../lib/tor');
+
 module.exports = (req, res, next) => {
-  res.json(req.params);
+  tor.node(req.params.id).then(node => res.json(node))
 }
