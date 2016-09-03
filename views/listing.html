@@ -39,6 +39,9 @@
         {% if req.query.p > 1 %}
           <a href="{{ req | pagination('prev') }}">&lt; Prev</a>
         {% endif %}
+        {% if req.query.p > 1 and nodes.length == numOfNodes %}
+          <span class="divider">-</span>
+        {% endif %}
         {% if nodes.length == numOfNodes %}
           <a href="{{ req | pagination('next') }}">Next &gt;</a>
         {% endif %}
