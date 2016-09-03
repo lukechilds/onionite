@@ -3,7 +3,7 @@
 {% block main %}
 
   {% if error %}
-    <h2>{{ 'Bad Search Query' if error.statusCode == 400 else error.statusMessage }}</h2>
+    <h2>{{ 'Bad Search Query' if error.statusCode == 400 and req.query.s else error.statusMessage }}</h2>
   {% else %}
     <h2>{{ title }}</h2>
     {% if nodes.length %}
