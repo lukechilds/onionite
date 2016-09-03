@@ -6,7 +6,6 @@
     <h2>{{ 'Invalid node' if error.statusCode == 400 else error.statusMessage }}</h2>
   {% else %}
     <h2>{{ node.type | title }}: {{ node | name }}</h2>
-    <pre>{{ node | dump }}</pre>
   {% endif %}
 
 {% endblock %}
