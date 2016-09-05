@@ -75,9 +75,14 @@
           <dt>Type</dt>
           <dd>{{ node.type | title }}</dd>
         {% endif %}
+        {% if node.exit_policy.length %}
+          <dt>Exit Policy</dt>
+          {% for rule in node.exit_policy %}
+            <dd>{{ rule }}</dd>
+          {% endfor %}
+        {% endif %}
       </dl>
     </section>
-
 
   {% endif %}
 
