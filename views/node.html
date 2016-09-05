@@ -11,6 +11,74 @@
       <h3>Status</h3>
       {{ node | status }}
     </section>
+
+    <section class="details">
+      <h3>Details</h3>
+      <dl>
+        {% if node.nickname %}
+          <dt>Nickname</dt>
+          <dd>{{ node.nickname }}</dd>
+        {% endif %}
+        {% if node.fingerprint %}
+          <dt>Fingerprint</dt>
+          <dd>{{ node.fingerprint }}</dd>
+        {% endif %}
+        {% if node.flags.length %}
+          <dt>Flags</dt>
+          {% for flag in node.flags %}
+            <dd>{{ flag }}</dd>
+          {% endfor %}
+        {% endif %}
+        {% if node.country_name %}
+          <dt>Country</dt>
+          <dd>{{ node.country_name }}</dd>
+        {% endif %}
+        {% if node.or_addresses.length %}
+          <dt>Or Addresses</dt>
+          {% for address in node.or_addresses %}
+            <dd>{{ address }}</dd>
+          {% endfor %}
+        {% endif %}
+        {% if node.dir_address %}
+          <dt>Dir Address</dt>
+          <dd>{{ node.dir_address }}</dd>
+        {% endif %}
+        {% if node.as_number %}
+          <dt>AS Number</dt>
+          <dd>{{ node.as_number }}</dd>
+        {% endif %}
+        {% if node.as_name %}
+          <dt>AS Name</dt>
+          <dd>{{ node.as_name }}</dd>
+        {% endif %}
+        {% if node.consensus_weight %}
+          <dt>Consensus Weight</dt>
+          <dd>{{ node.consensus_weight }}</dd>
+        {% endif %}
+        {% if node.host_name %}
+          <dt>Hostname</dt>
+          <dd>{{ node.host_name }}</dd>
+        {% endif %}
+        {% if node.advertised_bandwidth %}
+          <dt>Advertised Bandwidth</dt>
+          <dd>{{ node | bandwidth }}</dd>
+        {% endif %}
+        {% if node.contact %}
+          <dt>Contact</dt>
+          <dd>{{ node.contact }}</dd>
+        {% endif %}
+        {% if node.platform %}
+          <dt>Platform</dt>
+          <dd>{{ node.platform }}</dd>
+        {% endif %}
+        {% if node.type %}
+          <dt>Type</dt>
+          <dd>{{ node.type | title }}</dd>
+        {% endif %}
+      </dl>
+    </section>
+
+
   {% endif %}
 
 {% endblock %}
