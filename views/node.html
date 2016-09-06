@@ -23,6 +23,10 @@
           <dt>Fingerprint</dt>
           <dd>{{ node.fingerprint }}</dd>
         {% endif %}
+        {% if node.hashed_fingerprint %}
+          <dt>Hashed Fingerprint</dt>
+          <dd>{{ node.hashed_fingerprint }}</dd>
+        {% endif %}
         {% if node.flags.length %}
           <dt>Flags</dt>
           {% for flag in node.flags %}
@@ -70,6 +74,12 @@
         {% if node.platform %}
           <dt>Platform</dt>
           <dd>{{ node.platform }}</dd>
+        {% endif %}
+        {% if node.transports.length %}
+          <dt>Transport Protocols</dt>
+          {% for transportProtocol in node.transports %}
+            <dd>{{ transportProtocol }}</dd>
+          {% endfor %}
         {% endif %}
         {% if node.type %}
           <dt>Type</dt>
