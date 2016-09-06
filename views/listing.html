@@ -10,6 +10,7 @@
       <table>
         <thead>
           <tr>
+            <th>#</th>
             <th>Nickname</th>
             <th>Bandwidth</th>
             <th>Uptime</th>
@@ -21,6 +22,7 @@
         <tbody>
           {% for node in nodes %}
           <tr>
+            <td>{{ req.query.p * 10 - 10 + loop.index if req.query.p else loop.index }}</td>
             <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
             <td>{{ node | bandwidth }}</td>
             <td>{{ node | uptime }}</td>

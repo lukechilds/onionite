@@ -94,6 +94,10 @@ tr:nth-of-type(even) td {
   background: rgba(255, 255, 255, 0.2);
 }
 
+td:first-child {
+  text-align: center;
+}
+
 .pagination {
   margin-top: 1em;
 }
