@@ -93,3 +93,26 @@ th {
 tr:nth-of-type(even) td {
   background: rgba(255, 255, 255, 0.2);
 }
+
+.pagination {
+  margin-top: 1em;
+}
+
+.pagination a {
+  text-decoration: none;
+  font-family: "Georgia", "Apple Symbols", serif;
+  font-size: 3em;
+  line-height: 0.3em;
+}
+
+.pagination .prev {
+  float: left;
+}
+.pagination .next {
+  float: right;
+}
+
+.pagination .desc,
+.pagination .divider {
+  display: none;
+}
