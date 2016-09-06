@@ -15,5 +15,8 @@ app.use(nunjucksMiddleware);
 app.get('/', controllers.listing);
 app.get('/node/:id', controllers.node);
 
+// Serve assets with cache headers
+app.use('/assets', express.static(`${__dirname}/assets`, { maxAge: '1 year' }));
+
 // Start app
 app.listen(port, () => console.log(`Tor Explorer listening on port ${port}`));
