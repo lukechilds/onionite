@@ -1,11 +1,10 @@
+/* Global styles */
 body {
-  width: calc(100% - 4em);
-  max-width: 1200px;
-  margin: 0 auto;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: #ff512f;
   background: linear-gradient(to left, #ff512f , #f09819);
   color: #222;
+  margin: 0;
 }
 
 a {
@@ -17,29 +16,37 @@ a:hover {
   color: #ff512f;
 }
 
+h1,
+h2 {
+  margin-top: 0;
+}
+
+.wrapper {
+  width: calc(100% - 4em);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
 }
 
-body > * {
+/* Header & footer */
+header,
+footer {
   background: #fff;
-  border: 1px solid #eee;
-  border-radius: 3px;
-  box-shadow: 0px 3px #ddd;
-  margin: 2em 0;
   padding: 1em;
 }
 
-h1,
-h2 {
-  margin-top: 0;
+header {
+  box-shadow: 0px 3px #ddd;
+  margin-bottom: 2em;
 }
 
-h2,
-h3 {
-  color: #111;
+footer {
+  margin-top: 2em;
 }
 
 h1 {
@@ -51,6 +58,34 @@ h1 {
   float: right;
 }
 
+/* Main */
+main {
+  color: #fff;
+}
+
+main a {
+  color: #fff;
+  text-decoration: underline;
+}
+main a:hover {
+  color: #fff;
+}
+
+/* Listing page */
 table {
+  font-family: "Source Code Pro", Consolas, monospace;
   width: 100%;
+}
+
+th,
+td {
+  padding: 0.4em;
+  background: rgba(255, 255, 255, 0.1);
+}
+th {
+  font-weight: normal;
+  background: rgba(255, 255, 255, 0.3);
+}
+tr:nth-of-type(even) td {
+  background: rgba(255, 255, 255, 0.2);
 }
