@@ -6,12 +6,14 @@ const controllers         = require('./controllers');
 const app                 = express();
 const port                = process.env.port || 3000;
 
+// Setup nunjucks
 app.set('nunjucksEnv', nunjucks.configure('views', { express: app }));
 nunjucksFilters(app);
-
 app.use(nunjucksMiddleware);
 
+// Page routes
 app.get('/', controllers.listing);
 app.get('/node/:id', controllers.node);
 
+// Start app
 app.listen(port, () => console.log(`Tor Explorer listening on port ${port}`));
