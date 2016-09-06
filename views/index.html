@@ -3,25 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>Tor Explorer</title>
+    <link rel="stylesheet" href="/assets/style.css">
   </head>
   <body>
 
     <header>
-      <a href="/"><h1>Tor Explorer</h1></a>
-      <form action="/">
-        <label>
-          Search
-          <input type="search" name="s" value="{{ req.query.s }}">
-        </label>
-      </form>
+      <div class="wrapper clearfix">
+        <a href="/"><h1>Tor Explorer</h1></a>
+        <form class="search" action="/">
+          <label>
+            Search
+            <input type="search" name="s" value="{{ req.query.s }}">
+          </label>
+        </form>
+      </div>
     </header>
 
-    <main>
+    <main class="wrapper">
       {% block main %}{% endblock %}
     </main>
 
     <footer>
-      <a target="_blank" href="https://github.com/lukechilds/tor-explorer">Source code</a> - <a target="_blank" href="https://github.com/lukechilds/tor-explorer/issues">Report a bug</a>
+      <div class="wrapper">
+        <a target="_blank" href="https://github.com/lukechilds/tor-explorer">Source code</a> - <a target="_blank" href="https://github.com/lukechilds/tor-explorer/issues">Report a bug</a>
+      </div>
     </footer>
 
   </body>
