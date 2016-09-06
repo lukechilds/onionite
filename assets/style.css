@@ -5,6 +5,9 @@ body {
   background: linear-gradient(to left, #ff512f , #f09819);
   color: #222;
   margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 a {
@@ -61,6 +64,7 @@ h1 {
 /* Main */
 main {
   color: #fff;
+  flex: 1;
 }
 
 main a {
