@@ -1,12 +1,12 @@
 const nunjucks        = require('nunjucks');
 const express         = require('express');
-const nunjuckFilters  = require('./lib/nunjuck-filters');
+const nunjucksFilters = require('./lib/nunjucks-filters');
 const controllers     = require('./controllers');
 const app             = express();
 const port            = process.env.port || 3000;
 
 app.set('nunjucksEnv', nunjucks.configure('views', { express: app }));
-nunjuckFilters(app);
+nunjucksFilters(app);
 
 app.use((req, res, next) => {
   req.app.settings.nunjucksEnv
