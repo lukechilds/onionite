@@ -72,7 +72,7 @@ main a {
   text-decoration: underline;
 }
 main a:hover {
-  color: #fff;
+  color: rgba(255,255,255,0.75);
 }
 
 /* Listing page */
