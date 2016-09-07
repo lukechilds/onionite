@@ -1,8 +1,8 @@
 /* Global styles */
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #ff512f;
-  background: linear-gradient(to left, #ff512f , #f09819);
+  background: #b24592;
+  background: linear-gradient(to left, #b24592 , #f15f79);
   color: #222;
   margin: 0;
   display: flex;
@@ -11,12 +11,12 @@ body {
 }
 
 a {
-  color: #f09819;
+  color: #f15f79;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 a:hover {
-  color: #ff512f;
+  color: #b24592;
 }
 
 h1,
