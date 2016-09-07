@@ -58,10 +58,6 @@
             <dt>Dir Address</dt>
             <dd>{{ node.dir_address }}</dd>
           {% endif %}
-          {% if node.consensus_weight %}
-            <dt>Consensus Weight</dt>
-            <dd>{{ node.consensus_weight }}</dd>
-          {% endif %}
           {% if node.transports.length %}
             <dt>Transport Protocols</dt>
             {% for transportProtocol in node.transports %}
@@ -77,14 +73,6 @@
           {% if node.host_name %}
             <dt>Hostname</dt>
             <dd>{{ node.host_name }}</dd>
-          {% endif %}
-          {% if node.as_number %}
-            <dt>AS Number</dt>
-            <dd>{{ node.as_number }}</dd>
-          {% endif %}
-          {% if node.as_name %}
-            <dt>AS Name</dt>
-            <dd>{{ node.as_name }}</dd>
           {% endif %}
           {% if node.platform %}
             <dt>Platform</dt>
@@ -115,6 +103,18 @@
           {% if node.city_name %}
             <dt>City</dt>
             <dd>{{ node.city_name }}</dd>
+          {% endif %}
+          {% if node.as_number %}
+            <dt>AS Number</dt>
+            <dd>{{ node.as_number }}</dd>
+          {% endif %}
+          {% if node.as_name %}
+            <dt>AS Name</dt>
+            <dd>{{ node.as_name }}</dd>
+          {% endif %}
+          {% if node.consensus_weight %}
+            <dt>Consensus Weight</dt>
+            <dd>{{ node.consensus_weight }}</dd>
           {% endif %}
         </dl>
       </section>
