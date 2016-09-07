@@ -139,6 +139,33 @@ td:first-child {
 .pagination .divider {
   display: none;
 }
+
+/* Node page */
+.node-title {
+  float: left;
+}
+
+.status {
+  float: right;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  font-family: "Source Code Pro", Consolas, monospace;
+}
+
+.status h3 {
+  display: inline;
+}
+.status h3:after {
+  content: ':';
+}
+
+dl {
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.1);
+  font-family: "Source Code Pro", Consolas, monospace;
+}
+
 /* Footer */
 footer {
   margin-top: 2em;
