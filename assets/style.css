@@ -163,6 +163,14 @@ dl {
   font-family: "Source Code Pro", Consolas, monospace;
 }
 
+dt:not(:first-child) {
+  margin-top: 1em;
+}
+
+dd {
+  margin: 0.2em 0 0 2em;
+}
+
 /* Footer */
 footer {
   margin-top: 2em;
