@@ -52,6 +52,10 @@ header .title {
   padding: 1em 0;
 }
 
+.icon-tor {
+  color: #b24592;
+}
+
 h1 {
   margin: 0;
 }
