@@ -156,9 +156,6 @@ td:first-child {
 .status h3 {
   display: inline;
 }
-.status h3:after {
-  content: ':';
-}
 
 dl {
   padding: 1em;
