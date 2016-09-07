@@ -106,6 +106,14 @@
           <dt>Country</dt>
           <dd>{{ node.country_name }}</dd>
         {% endif %}
+        {% if node.region_name %}
+          <dt>Region</dt>
+          <dd>{{ node.region_name }}</dd>
+        {% endif %}
+        {% if node.city_name %}
+          <dt>City</dt>
+          <dd>{{ node.city_name }}</dd>
+        {% endif %}
       </dl>
     </section>
 
