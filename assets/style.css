@@ -181,6 +181,14 @@ dd {
   margin: 0.2em 0 0 2em;
 }
 
+dd.flag {
+  margin-left: 0.5em;
+}
+
+dd.flag i {
+  opacity: 0.5;
+}
+
 .columns {
   -moz-columns: 2;
        columns: 2;

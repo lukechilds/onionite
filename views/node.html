@@ -37,7 +37,7 @@
         {% if node.flags.length %}
           <dt>Flags</dt>
           {% for flag in node.flags %}
-            <dd>{{ flag }}</dd>
+            <dd class="flag"><i class="icon-{{ flag | lower }}"></i> {{ flag }}</dd>
           {% endfor %}
         {% endif %}
       </dl>
