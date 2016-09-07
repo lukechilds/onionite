@@ -9,11 +9,11 @@
 
     <header>
       <div class="wrapper clearfix">
-        <a href="/"><h1>Tor Explorer</h1></a>
+        <a class="title" href="/"><h1>Tor Explorer</h1></a>
         <form class="search" action="/">
           <label>
-            Search
-            <input type="search" name="s" value="{{ req.query.s }}">
+            <span class="desc">Search</span>
+            <input type="search" placeholder="Search..." name="s" value="{{ req.query.s }}">
           </label>
         </form>
       </div>
