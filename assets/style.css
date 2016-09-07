@@ -171,6 +171,16 @@ dd {
   margin: 0.2em 0 0 2em;
 }
 
+.columns {
+  -moz-columns: 2;
+       columns: 2;
+}
+.meta,
+.config {
+  overflow: hidden;
+  break-inside: avoid;
+}
+
 /* Footer */
 footer {
   margin-top: 2em;
