@@ -52,7 +52,7 @@ header .title {
   padding: 1em 0;
 }
 
-.icon-tor {
+header .title .icon-tor {
   color: #b24592;
 }
 
@@ -186,6 +186,18 @@ dd.flag {
 }
 
 dd.flag i {
+  opacity: 0.5;
+}
+
+.overview {
+  position: relative;
+}
+
+.overview .icon-tor {
+  position: absolute;
+  font-size: 10em;
+  top: 3.6rem;
+  right: 1rem;
   opacity: 0.5;
 }
 
