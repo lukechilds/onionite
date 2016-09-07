@@ -4,6 +4,7 @@
   "description": "Explore the Tor network without JS",
   "main": "index.js",
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.14.0",
     "moment": "^2.14.1",
     "nunjucks": "^2.4.2",
