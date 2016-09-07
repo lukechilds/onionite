@@ -48,6 +48,14 @@
       <section class="config">
         <h3>Config</h3>
         <dl>
+          {% if node.type %}
+            <dt>Type</dt>
+            <dd>{{ node.type | title }}</dd>
+          {% endif %}
+          {% if node.platform %}
+            <dt>Platform</dt>
+            <dd>{{ node.platform }}</dd>
+          {% endif %}
           {% if node.or_addresses.length %}
             <dt>Or Addresses</dt>
             {% for address in node.or_addresses %}
@@ -70,24 +78,16 @@
               <dd>{{ rule }}</dd>
             {% endfor %}
           {% endif %}
-          {% if node.host_name %}
-            <dt>Hostname</dt>
-            <dd>{{ node.host_name }}</dd>
-          {% endif %}
-          {% if node.platform %}
-            <dt>Platform</dt>
-            <dd>{{ node.platform }}</dd>
-          {% endif %}
-          {% if node.type %}
-            <dt>Type</dt>
-            <dd>{{ node.type | title }}</dd>
-          {% endif %}
         </dl>
       </section>
 
       <section class="meta">
         <h3>Meta</h3>
         <dl>
+          {% if node.host_name %}
+            <dt>Hostname</dt>
+            <dd>{{ node.host_name }}</dd>
+          {% endif %}
           {% if node.contact %}
             <dt>Contact</dt>
             <dd>{{ node.contact }}</dd>
