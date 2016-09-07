@@ -8,7 +8,7 @@ const app                 = express();
 const port                = process.env.port || 3000;
 
 // Setup nunjucks
-app.set('nunjucksEnv', nunjucks.configure('views', { express: app }));
+nunjucks.configure('views', { express: app });
 nunjucksFilters(app);
 app.use(nunjucksMiddleware);
 
