@@ -187,3 +187,60 @@ footer {
   padding: 1em 0;
   background: #fff;
 }
+
+/* Icons */
+@font-face {
+  font-family: 'iconfont';
+  src: url('/assets/iconfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'iconfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tor:before {
+  content: "\e900";
+}
+.icon-badexit:before {
+  content: "\e14b";
+}
+.icon-stable:before {
+  content: "\e2bf";
+}
+.icon-exit:before {
+  content: "\e2c0";
+}
+.icon-running:before {
+  content: "\e876";
+}
+.icon-valid:before {
+  content: "\e877";
+}
+.icon-hsdir:before {
+  content: "\e2c7";
+}
+.icon-v2dir:before {
+  content: "\e617";
+}
+.icon-authority:before {
+  content: "\e925";
+}
+.icon-guard:before {
+  content: "\e32a";
+}
+.icon-fast:before {
+  content: "\e80e";
+}
