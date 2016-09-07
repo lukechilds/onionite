@@ -27,7 +27,13 @@
             <td>{{ node | bandwidth }}</td>
             <td>{{ node | uptime }}</td>
             <td>{{ node.country_name }}</td>
-            <td>{{ node.flags | join(', ') }}</td>
+            <td>
+              {% if node.flags.length %}
+                {% for flag in node.flags %}
+                  <i class="icon-{{ flag | lower }}" title="{{ flag }}">{{ flag }}</i>
+                {% endfor %}
+              {% endif %}
+            </td>
             <td>{{ node.type | title }}</td>
           </tr>
           {% endfor %}
