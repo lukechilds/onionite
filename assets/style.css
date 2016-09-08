@@ -246,14 +246,14 @@ footer {
     display: block;
   }
 
-  /* Hide table headers and number cell */
-  thead,
-  td:first-child {
+  /* Hide table headers */
+  thead {
     display: none;
   }
 
   /* Redo padding and sections */
   tr {
+    position: relative;
     background: rgba(255, 255, 255, 0.1);
     padding: 1em;
   }
@@ -272,8 +272,16 @@ footer {
     margin-bottom: 0.5em;
   }
 
+  /* Position number on the right */
+  td:first-child {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
+  td:first-child:before { content: '#'; }
+
   /* Set labels */
-  td:before {
+  td:not(:first-child):before {
     display: inline-block;
     min-width: 7em;
     margin-right: 1em;
