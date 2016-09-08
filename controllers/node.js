@@ -1,9 +1,14 @@
-const tor = require('../lib/tor');
+const tor             = require('../lib/tor');
+const bandwidthChart  = require('../lib/bandwidth-chart');
 
 module.exports = (req, res, next) => {
-  tor.node(req.params.id)
-    .then(node => res.render('node.html', {
-      node: node,
+  Promise.all([
+    tor.node(req.params.id),
+    tor.bandwidth(req.params.id)
+  ])
+    .then(data => res.render('node.html', {
+      node: data[0],
+      bandwidth: bandwidthChart(data[1])
     }))
     .catch(error => res.render('node.html', {
       error: error
