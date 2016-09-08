@@ -236,6 +236,14 @@ footer {
 /* Mobile */
 @media (max-width: 800px) {
 
+  /* Reduce header/footer margins */
+  header {
+    margin-bottom: 1em;
+  }
+  footer {
+    margin-top: 1em;
+  }
+
   /* Increase searchbar size */
   .search {
     margin-left: 2em;
