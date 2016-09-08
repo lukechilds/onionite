@@ -212,6 +212,16 @@ dd.flag i {
   opacity: 0.3;
 }
 
+.bandwidth small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+pre {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0;
+  overflow: hidden;
+}
+
 .columns {
   -moz-columns: 2;
        columns: 2;

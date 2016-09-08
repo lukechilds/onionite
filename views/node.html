@@ -52,6 +52,13 @@
       </section>
     {% endif %}
 
+    {% if bandwidth %}
+      <section class="bandwidth">
+        <h3>Bandwidth <small>(MB/s over the last month)</small></h3>
+        <pre>{{ bandwidth }}</pre>
+      </section>
+    {% endif %}
+
     <div class="columns">
 
       {% if
