@@ -96,6 +96,7 @@ h1 {
 main {
   color: #fff;
   flex: 1;
+  -ms-flex: inherit;
 }
 
 main a {
