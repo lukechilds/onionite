@@ -224,7 +224,17 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 1000px) {
+
+/* Hide country column on smaller screens */
+@media (min-width: 800px) and (max-width: 1000px) {
+  th:nth-of-type(5),
+  td:nth-of-type(5) {
+    display: none;
+  }
+}
+
+/* Completely overwrite table layout for mobile */
+@media (max-width: 800px) {
 
   /* Get rid of browser table layout */
   table, thead, tbody, th, td, tr {
