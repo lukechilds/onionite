@@ -30,7 +30,7 @@
             <td class="icons">
               {% if node.flags.length %}
                 {% for flag in node.flags %}
-                  <i class="icon-{{ flag | lower }}" title="{{ flag }}">{{ flag }}</i>
+                  <i class="icon-{{ flag | lower }}" title="{{ flag }}"><span class="hide">{{ flag }}</span></i>
                 {% endfor %}
               {% endif %}
             </td>
