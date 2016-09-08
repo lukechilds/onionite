@@ -256,6 +256,7 @@ footer {
     position: relative;
     background: rgba(255, 255, 255, 0.1);
     padding: 1em;
+    overflow: hidden;
   }
   tr:nth-of-type(even) {
     background: rgba(255, 255, 255, 0.2);
