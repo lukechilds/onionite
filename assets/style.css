@@ -329,6 +329,11 @@ footer {
   .search input {
     padding: 0.1em 0.2em;
   }
+
+  /* Reduce list title padding */
+  td:not(:first-child):before {
+    min-width: 6em;
+  }
 }
 
 /* Icons */
