@@ -302,6 +302,11 @@ footer {
   td:nth-of-type(5):before { content: "Country:"; }
   td:nth-of-type(6):before { content: "Flags:"; }
   td:nth-of-type(7):before { content: "Type:"; }
+
+  /* Collapse columns on smaller screens */
+  .columns {
+    columns: 1;
+  }
 }
 
 /* Small Mobile */
