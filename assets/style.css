@@ -86,6 +86,7 @@ h1 {
   border-width: 0 1px;
   font-size: 28px;
   padding: 0 0.2em;
+  border-radius: 0;
 }
 .search input:focus {
   outline: 0;
