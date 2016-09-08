@@ -184,6 +184,8 @@ dt:not(:first-child) {
 
 dd {
   margin: 0.2em 0 0 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 dd.flag {
