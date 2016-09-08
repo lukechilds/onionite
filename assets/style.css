@@ -236,6 +236,11 @@ footer {
 /* Mobile */
 @media (max-width: 800px) {
 
+  /* Increase searchbar size */
+  .search {
+    margin-left: 2em;
+  }
+
   /* Get rid of browser table layout */
   table, thead, tbody, th, td, tr {
     display: block;
