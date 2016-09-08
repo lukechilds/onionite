@@ -27,7 +27,7 @@
             <td>{{ node | bandwidth }}</td>
             <td>{{ node | uptime }}</td>
             <td>{{ node.country_name }}</td>
-            <td class="icons">
+            <td>
               {% if node.flags.length %}
                 {% for flag in node.flags %}
                   <i class="icon-{{ flag | lower }}" title="{{ flag }}"><span class="hide">{{ flag }}</span></i>

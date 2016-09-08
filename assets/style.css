@@ -147,7 +147,7 @@ td:first-child {
   float: right;
 }
 
-table .icons {
+table td:nth-of-type(6) {
   letter-spacing: -0.4em;
 }
 
