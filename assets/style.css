@@ -122,14 +122,14 @@ td:first-child {
 }
 
 .pagination {
-  margin-top: 1em;
+  margin-top: 0.6em;
 }
 
 .pagination a {
   text-decoration: none;
   font-family: "Georgia", "Apple Symbols", serif;
   font-size: 3em;
-  line-height: 0.3em;
+  line-height: 0.6em;
 }
 
 .pagination .prev {
