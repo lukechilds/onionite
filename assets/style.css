@@ -217,6 +217,7 @@ dd.flag i {
 .meta,
 .config {
   overflow: hidden;
+  -webkit-column-break-inside: avoid;
   break-inside: avoid;
 }
 
