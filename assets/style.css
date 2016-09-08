@@ -65,10 +65,16 @@ h1 {
 .search {
   flex: 1;
   margin-left: 5em;
+  display: flex;
 }
 
 .search .desc {
   display: none;
+}
+
+.search label {
+  flex: 1;
+  display: flex;
 }
 
 .search input {
@@ -76,7 +82,6 @@ h1 {
   color: #666;
   width: 100%;
   -webkit-appearance: none;
-  height: 100%;
   border: 1px solid #eee;
   border-width: 0 1px;
   font-size: 28px;
