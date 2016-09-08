@@ -340,6 +340,11 @@ footer {
     padding: 0.1em 0.2em;
   }
 
+  /* Hide tor icon on node page */
+  .overview .icon-tor {
+    display: none;
+  }
+
   /* Reduce list title padding */
   td:not(:first-child):before {
     min-width: 6em;
