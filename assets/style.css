@@ -223,17 +223,17 @@ footer {
   background: #fff;
 }
 
-/* Responsive */
-
-/* Hide country column on smaller screens */
+/* Small desktop */
 @media (min-width: 800px) and (max-width: 1000px) {
+
+  /* Hide country column */
   th:nth-of-type(5),
   td:nth-of-type(5) {
     display: none;
   }
 }
 
-/* Completely overwrite table layout for mobile */
+/* Mobile */
 @media (max-width: 800px) {
 
   /* Get rid of browser table layout */
