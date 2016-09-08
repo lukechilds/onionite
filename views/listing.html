@@ -45,13 +45,13 @@
     {% if req.query.s %}
       <div class="pagination clearfix">
         {% if req.query.p > 1 %}
-          <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="desc">Prev</span></a>
+          <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="hide">Prev</span></a>
         {% endif %}
         {% if req.query.p > 1 and nodes.length == numOfNodes %}
-          <span class="divider">-</span>
+          <span class="hide">-</span>
         {% endif %}
         {% if nodes.length == numOfNodes %}
-          <a class="next" href="{{ req | pagination('next') }}"><span class="desc">Next</span> &rsaquo;</a>
+          <a class="next" href="{{ req | pagination('next') }}"><span class="hide">Next</span> &rsaquo;</a>
         {% endif %}
       </div>
     {% endif %}

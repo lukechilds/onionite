@@ -39,6 +39,10 @@ h2 {
   clear: both;
 }
 
+.hide {
+  display: none;
+}
+
 /* Header */
 header {
   background: #fff;
@@ -66,10 +70,6 @@ h1 {
   flex: 1;
   margin-left: 5em;
   display: flex;
-}
-
-.search .desc {
-  display: none;
 }
 
 .search label {
@@ -145,11 +145,6 @@ td:first-child {
 }
 .pagination .next {
   float: right;
-}
-
-.pagination .desc,
-.pagination .divider {
-  display: none;
 }
 
 table .icons {
