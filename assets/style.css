@@ -144,10 +144,15 @@ td:first-child {
   display: none;
 }
 
+table .icons {
+  letter-spacing: -0.4em;
+}
+
 table i {
   display: inline-block;
   max-width: 1em;
   overflow: hidden;
+  letter-spacing: initial;
 }
 
 /* Node page */
