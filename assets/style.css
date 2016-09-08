@@ -223,6 +223,53 @@ footer {
   background: #fff;
 }
 
+/* Responsive */
+@media (max-width: 1000px) {
+
+  /* Get rid of browser table layout */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  /* Hide table headers and number cell */
+  thead,
+  td:first-child {
+    display: none;
+  }
+
+  /* Redo padding and sections */
+  tr {
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+  tr:nth-of-type(even) {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  td,
+  tr:nth-of-type(even) td {
+    padding: 0;
+    background: none;
+  }
+  td:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+  /* Set labels */
+  td:before {
+    display: inline-block;
+    min-width: 7em;
+    margin-right: 1em;
+    letter-spacing: initial;
+  }
+  td:nth-of-type(2):before { content: "Nickname:"; }
+  td:nth-of-type(3):before { content: "Bandwidth:"; }
+  td:nth-of-type(4):before { content: "Uptime:"; }
+  td:nth-of-type(5):before { content: "Country:"; }
+  td:nth-of-type(6):before { content: "Flags:"; }
+  td:nth-of-type(7):before { content: "Type:"; }
+}
+
 /* Icons */
 @font-face {
   font-family: 'iconfont';
