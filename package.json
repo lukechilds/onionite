@@ -6,6 +6,8 @@
   "dependencies": {
     "compression": "^1.6.2",
     "express": "^4.14.0",
+    "express-minify": "^0.2.0",
+    "express-minify-html": "^0.6.0",
     "moment": "^2.14.1",
     "nunjucks": "^2.5.0",
     "onionoo": "^0.5.0",

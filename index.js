@@ -3,6 +3,7 @@ const express             = require('express');
 const nunjucksFilters     = require('./lib/nunjucks-filters');
 const nunjucksMiddleware  = require('./lib/nunjucks-middleware');
 const compression         = require('compression');
+const minify              = require('./lib/minify');
 const controllers         = require('./controllers');
 const app                 = express();
 const port                = process.env.port || 3000;
@@ -14,6 +15,9 @@ app.use(nunjucksMiddleware);
 
 // Compress responses
 app.use(compression());
+
+// Minify responses
+app.use(minify);
 
 // Page routes
 app.get('/', controllers.listing);
