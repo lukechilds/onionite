@@ -15,110 +15,138 @@
       </section>
     </div>
 
-    <section class="overview">
-      <h3>Overview</h3>
-      <i class="icon-tor"></i>
-      <dl>
-        {% if node.nickname %}
-          <dt>Nickname</dt>
-          <dd>{{ node.nickname }}</dd>
-        {% endif %}
-        {% if node.fingerprint %}
-          <dt>Fingerprint</dt>
-          <dd>{{ node.fingerprint }}</dd>
-        {% endif %}
-        {% if node.hashed_fingerprint %}
-          <dt>Hashed Fingerprint</dt>
-          <dd>{{ node.hashed_fingerprint }}</dd>
-        {% endif %}
-        {% if node.advertised_bandwidth %}
-          <dt>Advertised Bandwidth</dt>
-          <dd>{{ node | bandwidth }}</dd>
-        {% endif %}
-        {% if node.flags.length %}
-          <dt>Flags</dt>
-          {% for flag in node.flags %}
-            <dd class="flag"><i class="icon-{{ flag | lower }}"></i> {{ flag }}</dd>
-          {% endfor %}
-        {% endif %}
-      </dl>
-    </section>
+    {% if
+      node.nickname or
+      node.fingerprint or
+      node.hashed_fingerprint or
+      node.advertised_bandwidth or
+      node.flags.length
+    %}
+      <section class="overview">
+        <h3>Overview</h3>
+        <i class="icon-tor"></i>
+        <dl>
+          {% if node.nickname %}
+            <dt>Nickname</dt>
+            <dd>{{ node.nickname }}</dd>
+          {% endif %}
+          {% if node.fingerprint %}
+            <dt>Fingerprint</dt>
+            <dd>{{ node.fingerprint }}</dd>
+          {% endif %}
+          {% if node.hashed_fingerprint %}
+            <dt>Hashed Fingerprint</dt>
+            <dd>{{ node.hashed_fingerprint }}</dd>
+          {% endif %}
+          {% if node.advertised_bandwidth %}
+            <dt>Advertised Bandwidth</dt>
+            <dd>{{ node | bandwidth }}</dd>
+          {% endif %}
+          {% if node.flags.length %}
+            <dt>Flags</dt>
+            {% for flag in node.flags %}
+              <dd class="flag"><i class="icon-{{ flag | lower }}"></i> {{ flag }}</dd>
+            {% endfor %}
+          {% endif %}
+        </dl>
+      </section>
+    {% endif %}
 
     <div class="columns">
 
-      <section class="config">
-        <h3>Config</h3>
-        <dl>
-          {% if node.type %}
-            <dt>Type</dt>
-            <dd>{{ node.type | title }}</dd>
-          {% endif %}
-          {% if node.platform %}
-            <dt>Platform</dt>
-            <dd>{{ node.platform }}</dd>
-          {% endif %}
-          {% if node.or_addresses.length %}
-            <dt>Or Addresses</dt>
-            {% for address in node.or_addresses %}
-              <dd>{{ address }}</dd>
-            {% endfor %}
-          {% endif %}
-          {% if node.dir_address %}
-            <dt>Dir Address</dt>
-            <dd>{{ node.dir_address }}</dd>
-          {% endif %}
-          {% if node.transports.length %}
-            <dt>Transport Protocols</dt>
-            {% for transportProtocol in node.transports %}
-              <dd>{{ transportProtocol }}</dd>
-            {% endfor %}
-          {% endif %}
-          {% if node.exit_policy.length %}
-            <dt>Exit Policy</dt>
-            {% for rule in node.exit_policy %}
-              <dd>{{ rule }}</dd>
-            {% endfor %}
-          {% endif %}
-        </dl>
-      </section>
+      {% if
+        node.type or
+        node.platform or
+        node.or_addresses.length or
+        node.dir_address or
+        node.transports.length or
+        node.exit_policy.length
+      %}
+        <section class="config">
+          <h3>Config</h3>
+          <dl>
+            {% if node.type %}
+              <dt>Type</dt>
+              <dd>{{ node.type | title }}</dd>
+            {% endif %}
+            {% if node.platform %}
+              <dt>Platform</dt>
+              <dd>{{ node.platform }}</dd>
+            {% endif %}
+            {% if node.or_addresses.length %}
+              <dt>Or Addresses</dt>
+              {% for address in node.or_addresses %}
+                <dd>{{ address }}</dd>
+              {% endfor %}
+            {% endif %}
+            {% if node.dir_address %}
+              <dt>Dir Address</dt>
+              <dd>{{ node.dir_address }}</dd>
+            {% endif %}
+            {% if node.transports.length %}
+              <dt>Transport Protocols</dt>
+              {% for transportProtocol in node.transports %}
+                <dd>{{ transportProtocol }}</dd>
+              {% endfor %}
+            {% endif %}
+            {% if node.exit_policy.length %}
+              <dt>Exit Policy</dt>
+              {% for rule in node.exit_policy %}
+                <dd>{{ rule }}</dd>
+              {% endfor %}
+            {% endif %}
+          </dl>
+        </section>
+      {% endif %}
 
-      <section class="meta">
-        <h3>Meta</h3>
-        <dl>
-          {% if node.host_name %}
-            <dt>Hostname</dt>
-            <dd>{{ node.host_name }}</dd>
-          {% endif %}
-          {% if node.contact %}
-            <dt>Contact</dt>
-            <dd>{{ node.contact }}</dd>
-          {% endif %}
-          {% if node.country_name %}
-            <dt>Country</dt>
-            <dd>{{ node.country_name }}</dd>
-          {% endif %}
-          {% if node.region_name %}
-            <dt>Region</dt>
-            <dd>{{ node.region_name }}</dd>
-          {% endif %}
-          {% if node.city_name %}
-            <dt>City</dt>
-            <dd>{{ node.city_name }}</dd>
-          {% endif %}
-          {% if node.as_number %}
-            <dt>AS Number</dt>
-            <dd>{{ node.as_number }}</dd>
-          {% endif %}
-          {% if node.as_name %}
-            <dt>AS Name</dt>
-            <dd>{{ node.as_name }}</dd>
-          {% endif %}
-          {% if node.consensus_weight %}
-            <dt>Consensus Weight</dt>
-            <dd>{{ node.consensus_weight }}</dd>
-          {% endif %}
-        </dl>
-      </section>
+      {% if
+        node.host_name or
+        node.contact or
+        node.country_name or
+        node.region_name or
+        node.city_name or
+        node.as_number or
+        node.as_name or
+        node.consensus_weight
+      %}
+        <section class="meta">
+          <h3>Meta</h3>
+          <dl>
+            {% if node.host_name %}
+              <dt>Hostname</dt>
+              <dd>{{ node.host_name }}</dd>
+            {% endif %}
+            {% if node.contact %}
+              <dt>Contact</dt>
+              <dd>{{ node.contact }}</dd>
+            {% endif %}
+            {% if node.country_name %}
+              <dt>Country</dt>
+              <dd>{{ node.country_name }}</dd>
+            {% endif %}
+            {% if node.region_name %}
+              <dt>Region</dt>
+              <dd>{{ node.region_name }}</dd>
+            {% endif %}
+            {% if node.city_name %}
+              <dt>City</dt>
+              <dd>{{ node.city_name }}</dd>
+            {% endif %}
+            {% if node.as_number %}
+              <dt>AS Number</dt>
+              <dd>{{ node.as_number }}</dd>
+            {% endif %}
+            {% if node.as_name %}
+              <dt>AS Name</dt>
+              <dd>{{ node.as_name }}</dd>
+            {% endif %}
+            {% if node.consensus_weight %}
+              <dt>Consensus Weight</dt>
+              <dd>{{ node.consensus_weight }}</dd>
+            {% endif %}
+          </dl>
+        </section>
+      {% endif %}
 
     </div>
 
