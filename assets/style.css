@@ -250,11 +250,13 @@ footer {
   /* Redo padding and sections */
   tr {
     background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 1em;
     padding: 1em;
   }
   tr:nth-of-type(even) {
     background: rgba(255, 255, 255, 0.2);
+  }
+  tr:not(:last-child) {
+    margin-bottom: 1em;
   }
   td,
   tr:nth-of-type(even) td {
