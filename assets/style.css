@@ -340,6 +340,12 @@ footer {
     padding: 0.1em 0.2em;
   }
 
+  /* Clear float on node title/status */
+  .node-title,
+  .status {
+    float: none;
+  }
+
   /* Hide tor icon on node page */
   .overview .icon-tor {
     display: none;
