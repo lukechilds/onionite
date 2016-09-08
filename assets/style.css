@@ -287,6 +287,33 @@ footer {
   td:nth-of-type(7):before { content: "Type:"; }
 }
 
+/* Small Mobile */
+@media (max-width: 500px) {
+
+  /* Center title and move searchbar below */
+  header {
+    margin-bottom: 5em;
+  }
+  header .wrapper {
+    position: relative;
+  }
+  header .title {
+    width: 100%;
+    text-align: center;
+  }
+  .search {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(150%);
+    width: 100%;
+    margin: 0;
+    box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
+  }
+  .search input {
+    padding: 0.1em 0.2em;
+  }
+}
+
 /* Icons */
 @font-face {
   font-family: 'iconfont';
