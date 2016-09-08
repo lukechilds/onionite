@@ -155,7 +155,7 @@ table i {
   display: inline-block;
   max-width: 1em;
   overflow: hidden;
-  letter-spacing: initial;
+  letter-spacing: normal;
 }
 
 /* Node page */
@@ -301,7 +301,7 @@ footer {
     display: inline-block;
     min-width: 7em;
     margin-right: 1em;
-    letter-spacing: initial;
+    letter-spacing: normal;
   }
   td:nth-of-type(2):before { content: "Nickname:"; }
   td:nth-of-type(3):before { content: "Bandwidth:"; }
