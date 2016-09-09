@@ -371,7 +371,8 @@ footer {
     box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
   }
   .search input {
-    padding: 0.1em 0.2em;
+    font-size: 20px;
+    padding: 0.4em 0.2em;
   }
   main {
     padding-top: 8.5em;
