@@ -266,8 +266,8 @@ footer {
 @media (max-width: 800px) {
 
   /* Reduce header/footer margins */
-  header {
-    margin-bottom: 1em;
+  main {
+    padding-top: 4.8em;
   }
   footer {
     margin-top: 1em;
@@ -374,7 +374,7 @@ footer {
     padding: 0.1em 0.2em;
   }
   main {
-    padding-top: 7.5em;
+    padding-top: 8.5em;
   }
 
   /* Clear float on node title/status */
