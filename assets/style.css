@@ -2,6 +2,7 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
+  letter-spacing: 0.025em;
   background: #b24592;
   background: linear-gradient(to left, #b24592 , #f15f79);
   color: #777;
@@ -227,6 +228,7 @@ pre {
   margin: 0;
   overflow: hidden;
   font-size: calc(1.35vw - .03em);
+  letter-spacing: normal;
 }
 
 .columns {
