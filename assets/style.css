@@ -49,7 +49,7 @@ header {
   z-index: 1;
   width: 100%;
   background: #fff;
-  box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
+  box-shadow: 0px 3px #eaeaea;
 }
 
 header .wrapper {
@@ -364,7 +364,7 @@ footer {
     width: 100%;
     text-align: center;
     background: #fff;
-    box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
+    box-shadow: 0px 3px #eaeaea;
   }
   .search {
     position: absolute;
@@ -374,7 +374,7 @@ footer {
     width: 100%;
     margin: 0;
     background: #fff;
-    box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
+    box-shadow: 0px 3px #eaeaea;
   }
   .search input {
     font-size: 20px;
