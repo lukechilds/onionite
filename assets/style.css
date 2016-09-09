@@ -239,6 +239,31 @@ pre {
   break-inside: avoid;
 }
 
+/* About */
+.content {
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.1);
+  line-height: 1.4em;
+}
+
+.content p:first-child {
+  margin-top: 0;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+code {
+  padding: 0 0.2em;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+dl.flags {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+}
+
 /* Footer */
 footer {
   margin-top: 2em;

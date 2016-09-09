@@ -2,6 +2,56 @@
 
 {% block main %}
 
-  <h2 class="node-title">{{ pageTitle }}</h2>
+  <h2>Tor</h2>
+  <div class="content">
+    <p>Tor is free software for enabling anonymous communication. This application allows you to  view information on the individual nodes that make up the Tor network. All information is provided by the <a target="_blank" href="//onionoo.torproject.org">Onionoo</a> API.</p>
+    <p>If you've never used Tor before, why not give it a go, it's really easy to use, just download the <a target="_blank" href="//www.torproject.org/projects/torbrowser.html">Tor Browser Bundle</a> and fire it up. If you find Tor useful, maybe consider <a target="_blank" href="//www.eff.org/torchallenge/">running a relay</a>.</p>
+    <p><small>"Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.</small></p>
+  </div>
+
+  <div class="columns">
+
+    <section>
+      <h3>Search</h3>
+      <div class="content">
+        <p>You can search for Tor nodes by entering part of the nickname, hash or IP address into the search bar. Filters are also accepted, they can be used by specifying an Onionoo parameter and value separated by a colon, e.g <code>country:gb</code>, <code>contact:luke</code> or <code>flag:Fast</code>.</p>
+        <p>To search for nodes in Great Britain that contain the string "jug" in their nickname you would search for <code>jug country:gb</code>.</p>
+        <p><a target="_blank" href="//onionoo.torproject.org/protocol.html#methods">View all Onionoo parameters.</a>
+      </div>
+    </section>
+
+    <section>
+      <h3>Flag Descriptions</h3>
+      <dl class="flags">
+        <dt>Authority</dt>
+        <dd>if the router is a directory authority.</dd>
+        <dt>BadExit</dt>
+        <dd>if the router is believed to be useless as an exit node (because its ISP censors it, because it is behind a restrictive proxy, or for some similar reason).</dd>
+        <dt>Exit</dt>
+        <dd>if the router is more useful for building general-purpose exit circuits than for relay circuits. The path building algorithm uses this flag; see path-spec.txt.</dd>
+        <dt>Fast</dt>
+        <dd>if the router is suitable for high-bandwidth circuits.</dd>
+        <dt>Guard</dt>
+        <dd>if the router is suitable for use as an entry guard.</dd>
+        <dt>HSDir</dt>
+        <dd>if the router is considered a v2 hidden service directory.</dd>
+        <dt>Named</dt>
+        <dd>if the router's identity-nickname mapping is canonical, and this authority binds names.</dd>
+        <dt>NoEdConsensus</dt>
+        <dd>if any Ed25519 key in the router's descriptor or microdesriptor does not reflect authority consensus.</dd>
+        <dt>Stable</dt>
+        <dd>if the router is suitable for long-lived circuits.</dd>
+        <dt>Running</dt>
+        <dd>if the router is currently usable.</dd>
+        <dt>Unnamed</dt>
+        <dd>if another router has bound the name used by this router, and this authority binds names.</dd>
+        <dt>Valid</dt>
+        <dd>if the router has been 'validated'.</dd>
+        <dt>V2Dir</dt>
+        <dd>if the router implements the v2 directory protocol or higher.</dd>
+      </dl>
+    </section>
+
+  </div>
 
 {% endblock %}
