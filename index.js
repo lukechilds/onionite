@@ -22,6 +22,7 @@ app.use(minify);
 // Page routes
 app.get('/', controllers.listing);
 app.get('/node/:id', controllers.node);
+app.get('/about', controllers.about);
 
 // Serve assets with cache headers
 app.use('/assets', express.static(`${__dirname}/assets`, { maxAge: '1 year' }));
