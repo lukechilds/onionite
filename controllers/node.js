@@ -1,7 +1,7 @@
 const tor             = require('../lib/tor');
 const bandwidthChart  = require('../lib/bandwidth-chart');
 
-module.exports = (req, res, next) => {
+module.exports = (req, res) => {
   Promise.all([
     tor.node(req.params.id),
     tor.bandwidth(req.params.id)
