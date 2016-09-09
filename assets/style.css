@@ -44,6 +44,14 @@ h2 {
   display: none;
 }
 
+.status,
+dl,
+pre,
+.content {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1em;
+}
+
 /* Header */
 header {
   position: fixed;
@@ -170,8 +178,6 @@ table i {
 
 .status {
   float: right;
-  padding: 1em;
-  background: rgba(255, 255, 255, 0.1);
   font-size: 14px;
   font-family: "Source Code Pro", Consolas, monospace;
 }
@@ -183,8 +189,6 @@ table i {
 
 dl {
   margin: 0;
-  padding: 1em;
-  background: rgba(255, 255, 255, 0.1);
   font-family: "Source Code Pro", Consolas, monospace;
 }
 
@@ -223,8 +227,6 @@ dd.flag i {
 }
 
 pre {
-  padding: 1em;
-  background: rgba(255, 255, 255, 0.1);
   margin: 0;
   overflow: hidden;
   font-size: calc(1.35vw - .03em);
@@ -243,8 +245,6 @@ pre {
 
 /* About */
 .content {
-  padding: 1em;
-  background: rgba(255, 255, 255, 0.1);
   line-height: 1.4em;
 }
 
