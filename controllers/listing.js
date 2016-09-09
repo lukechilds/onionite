@@ -19,6 +19,7 @@ module.exports = (req, res) => {
 
   tor.listNodes(query)
     .then(nodes => res.render('listing.html', {
+      pageTitle: req.query.s ? `Search: ${req.query.s}` : false,
       title: title,
       nodes: nodes,
       numOfNodes: query.limit

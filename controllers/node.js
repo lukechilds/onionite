@@ -7,6 +7,7 @@ module.exports = (req, res, next) => {
     tor.bandwidth(req.params.id)
   ])
     .then(data => res.render('node.html', {
+      pageTitle: `${data[0].type}: ${data[0].nickname}`,
       node: data[0],
       bandwidth: bandwidthChart(data[1])
     }))
