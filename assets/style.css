@@ -233,8 +233,7 @@ pre {
   -moz-columns: 2;
        columns: 2;
 }
-.meta,
-.config {
+.columns > * {
   overflow: hidden;
   -webkit-column-break-inside: avoid;
   break-inside: avoid;
