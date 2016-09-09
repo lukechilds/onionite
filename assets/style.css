@@ -177,6 +177,7 @@ table i {
 
 .status h3 {
   display: inline;
+  margin-right: 0.6em;
 }
 
 dl {
