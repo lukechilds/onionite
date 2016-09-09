@@ -399,6 +399,18 @@ footer {
   td:not(:first-child):before {
     min-width: 6em;
   }
+
+  /* List footer links */
+  footer .wrapper > a {
+    display: block;
+    margin-bottom: 0.2em;
+  }
+  footer .divider {
+    display: none;
+  }
+  .me {
+    float: none;
+  }
 }
 
 /* Icons */
