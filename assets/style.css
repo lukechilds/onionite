@@ -331,7 +331,8 @@ footer {
 
   /* Collapse columns on smaller screens */
   .columns {
-    columns: 1;
+    -moz-columns: 1;
+         columns: 1;
   }
 }
 
