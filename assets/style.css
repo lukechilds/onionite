@@ -220,6 +220,7 @@ pre {
   background: rgba(255, 255, 255, 0.1);
   margin: 0;
   overflow: hidden;
+  font-size: calc(1.3vw - 0.02em);
 }
 
 .columns {
@@ -238,6 +239,13 @@ footer {
   margin-top: 2em;
   padding: 1em 0;
   background: #fff;
+}
+
+/* Large desktop */
+@media (min-width: 1230px) {
+  pre {
+    font-size: 16px;
+  }
 }
 
 /* Small desktop */
