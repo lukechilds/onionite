@@ -45,9 +45,11 @@ h2 {
 
 /* Header */
 header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
   background: #fff;
   box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
-  margin-bottom: 2em;
 }
 
 header .wrapper {
@@ -94,6 +96,7 @@ h1 {
 
 /* Main */
 main {
+  padding-top: 5.6em;
   color: #fff;
   flex: 1;
   -ms-flex: inherit;
@@ -342,18 +345,24 @@ footer {
 
   /* Center title and move searchbar below */
   header {
-    margin-bottom: 5em;
+    position: static;
   }
   header .wrapper {
     position: relative;
   }
   header .title {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
     width: 100%;
     text-align: center;
+    background: #fff;
+    box-shadow: 0px 3px rgba(255, 255, 255, 0.66);
   }
   .search {
     position: absolute;
-    bottom: 0;
+    top: 1.2em;
     left: 0;
     transform: translateY(150%);
     width: 100%;
@@ -363,6 +372,9 @@ footer {
   }
   .search input {
     padding: 0.1em 0.2em;
+  }
+  main {
+    padding-top: 7.5em;
   }
 
   /* Clear float on node title/status */
