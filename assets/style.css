@@ -245,6 +245,10 @@ footer {
   background: #fff;
 }
 
+.me {
+  float: right;
+}
+
 /* Large desktop */
 @media (min-width: 1230px) {
   pre {
