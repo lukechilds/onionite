@@ -217,10 +217,11 @@ dd.flag i {
 }
 
 pre {
+  padding: 1em;
   background: rgba(255, 255, 255, 0.1);
   margin: 0;
   overflow: hidden;
-  font-size: calc(1.3vw - 0.02em);
+  font-size: calc(1.35vw - .03em);
 }
 
 .columns {
