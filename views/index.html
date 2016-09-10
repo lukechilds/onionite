@@ -8,10 +8,10 @@
   </head>
   <body>
 
-    <header>
+    <header role="banner">
       <div class="wrapper clearfix">
         <a class="title" href="/"><h1><i class="icon-tor"></i> Tor Explorer</h1></a>
-        <form class="search" action="/">
+        <form role="search" class="search" action="/">
           <label>
             <span class="hide">Search</span>
             <input type="search" placeholder="Search..." name="s" value="{{ req.query.s }}">
@@ -20,11 +20,11 @@
       </div>
     </header>
 
-    <main class="wrapper">
+    <main role="main" class="wrapper">
       {% block main %}{% endblock %}
     </main>
 
-    <footer>
+    <footer role="contentinfo">
       <div class="wrapper">
         <a href="/about">About</a>
         <span class="divider">-</span>
