@@ -30,7 +30,7 @@
             <td>
               {% if node.flags.length %}
                 {% for flag in node.flags %}
-                  <i class="icon-{{ flag | lower }}" title="{{ flag }}"><span class="hide">{{ flag }}</span></i>
+                  <i class="icon-{{ flag | lower }}" title="{{ flag }}"><span class="hidden">{{ flag }}</span></i>
                 {% endfor %}
               {% endif %}
             </td>
@@ -45,13 +45,13 @@
     {% if req.query.s %}
       <div class="pagination clearfix">
         {% if req.query.p > 1 %}
-          <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="hide">Prev</span></a>
+          <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="visually-hidden">Prev</span></a>
         {% endif %}
         {% if req.query.p > 1 and nodes.length == numOfNodes %}
-          <span class="hide">-</span>
+          <span class="hidden">-</span>
         {% endif %}
         {% if nodes.length == numOfNodes %}
-          <a class="next" href="{{ req | pagination('next') }}"><span class="hide">Next</span> &rsaquo;</a>
+          <a class="next" href="{{ req | pagination('next') }}"><span class="visually-hidden">Next</span> &rsaquo;</a>
         {% endif %}
       </div>
     {% endif %}

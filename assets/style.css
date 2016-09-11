@@ -40,10 +40,14 @@ h2 {
   clear: both;
 }
 
-.hide {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 
 .status,
