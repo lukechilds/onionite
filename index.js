@@ -25,7 +25,7 @@ app.get('/node/:id', controllers.node);
 app.get('/about', controllers.about);
 
 // Serve assets with cache headers
-app.use('/assets', express.static(`${__dirname}/assets`, { maxAge: '1 year' }));
+app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
 
 // Start app
 app.listen(port, () => console.log(`Tor Explorer listening on port ${port}`));
