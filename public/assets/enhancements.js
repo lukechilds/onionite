@@ -1,5 +1,17 @@
 (function() {
 
+  // Feature detection results
+  const supports = {};
+
+  // Detect localStorage support
+  try {
+    localStorage.setItem('test', 'test');
+    localStorage.removeItem('test');
+    supports.localStorage = true;
+  } catch (e) {
+    supports.localStorage = false;
+  }
+
   // Add ios class to body on iOS devices
   function iosBodyClass() {
     if(
