@@ -1,7 +1,7 @@
 (function() {
 
   // Feature detection results
-  const supports = {};
+  var supports = {};
 
   // Detect localStorage support
   try {
@@ -14,7 +14,7 @@
 
   // Detect inline SVG support
   supports.inlineSVG = (function() {
-    const div = document.createElement('div');
+    var div = document.createElement('div');
     div.innerHTML = '<svg/>';
     return (
       typeof SVGRect != 'undefined'
