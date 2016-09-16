@@ -12,6 +12,17 @@
     supports.localStorage = false;
   }
 
+  // Detect inline SVG support
+  supports.inlineSVG = (function() {
+    const div = document.createElement('div');
+    div.innerHTML = '<svg/>';
+    return (
+      typeof SVGRect != 'undefined'
+      && div.firstChild
+      && div.firstChild.namespaceURI
+    ) == 'http://www.w3.org/2000/svg';
+  })();
+
   // Add ios class to body on iOS devices
   function iosBodyClass() {
     if(
