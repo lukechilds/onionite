@@ -7,6 +7,15 @@
 
   // When DOM is ready
   function init() {
+
+    // Check for iOS
+    if(
+      /iPad|iPhone|iPod/.test(navigator.userAgent)
+      && !window.MSStream
+      && document.body.classList
+    ) {
+      document.body.classList.add('ios');
+    }
   }
 
 })();
