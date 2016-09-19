@@ -32,11 +32,12 @@
         && div.firstChild
         && div.firstChild.namespaceURI
       ) == 'http://www.w3.org/2000/svg';
-    })()
+    })(),
+    querySelector: typeof document.querySelector === 'function'
   };
 
   // Check required features for favourite nodes
-  if(supports.localStorage && supports.inlineSVG) {
+  if(supports.localStorage && supports.inlineSVG && supports.querySelector) {
 
     // Get heart SVG
     var xhr = new XMLHttpRequest();
