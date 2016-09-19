@@ -13,28 +13,27 @@
     }
   }
 
-  // Feature detection results
-  var supports = {};
-
-  // Detect localStorage support
-  try {
-    localStorage.setItem('test', 'test');
-    localStorage.removeItem('test');
-    supports.localStorage = true;
-  } catch (e) {
-    supports.localStorage = false;
-  }
-
-  // Detect inline SVG support
-  supports.inlineSVG = (function() {
-    var div = document.createElement('div');
-    div.innerHTML = '<svg/>';
-    return (
-      typeof SVGRect != 'undefined'
-      && div.firstChild
-      && div.firstChild.namespaceURI
-    ) == 'http://www.w3.org/2000/svg';
-  })();
+  // Feature detection
+  var supports = {
+    localStorage: (function() {
+      try {
+        localStorage.setItem('test', 'test');
+        localStorage.removeItem('test');
+        return true;
+      } catch (e) {
+        return false;
+      }
+    })(),
+    inlineSVG: (function() {
+      var div = document.createElement('div');
+      div.innerHTML = '<svg/>';
+      return (
+        typeof SVGRect != 'undefined'
+        && div.firstChild
+        && div.firstChild.namespaceURI
+      ) == 'http://www.w3.org/2000/svg';
+    })()
+  };
 
   // Check required features for favourite nodes
   if(supports.localStorage && supports.inlineSVG) {
