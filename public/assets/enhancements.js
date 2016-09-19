@@ -49,6 +49,15 @@
       div.innerHTML = xhr.responseText;
       var heartEl = div.firstChild;
 
+      // Add click handler
+      heartEl.addEventListener('click', function(e) {
+        if(heartEl.classList.contains('hearted')) {
+          heartEl.classList.remove('hearted');
+        } else {
+          heartEl.classList.add('hearted');
+        }
+      });
+
       // Inject heart into DOM
       DOMReady(function() {
         var titleEl = document.querySelector('h2.node-title');

@@ -196,6 +196,9 @@ table i {
 .node-title .heart:hover {
   fill: rgba(255, 255, 255, 0.25);
 }
+.node-title .heart.hearted {
+  fill: #fff;
+}
 
 .status {
   float: right;
