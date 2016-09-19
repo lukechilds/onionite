@@ -57,14 +57,20 @@
         }
       });
 
+      // Show heart as active if we've already hearted this node
+      var storageKey = 'heartedNodes';
+      var heartedNodes = JSON.parse(localStorage.getItem(storageKey)) || [];
+      var node = /^\/node\/([a-zA-Z0-9]+)/.exec(window.location.pathname);
+      node = node ? node[1] : node;
+      if(heartedNodes.indexOf(node) > -1) {
+        heartEl.classList.add('hearted');
+      }
+
       // Add click handler
       heartEl.addEventListener('click', function(e) {
 
-        // Setup vars
-        var storageKey = 'heartedNodes';
+        // Recheck localStorage
         var heartedNodes = JSON.parse(localStorage.getItem(storageKey)) || [];
-        var node = /^\/node\/([a-zA-Z0-9]+)/.exec(window.location.pathname);
-        node = node ? node[1] : node;
         var nodeIndex = heartedNodes.indexOf(node);
 
         // Heart/unheart node
