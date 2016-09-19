@@ -1,5 +1,18 @@
 (function() {
 
+  // Run callback when DOM is ready
+  function DOMReady(fn) {
+
+    // Run now if DOM has already loaded as we're loading async
+    if(['interactive', 'complete'].indexOf(document.readyState) >= 0) {
+      fn();
+
+    // Otherwise wait for DOM
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
   // Feature detection results
   var supports = {};
 
@@ -23,19 +36,8 @@
     ) == 'http://www.w3.org/2000/svg';
   })();
 
-  // Add ios class to body on iOS devices
-  function iosBodyClass() {
-    if(
-      /iPad|iPhone|iPod/.test(navigator.userAgent)
-      && !window.MSStream
-      && document.body.classList
-    ) {
-      document.body.classList.add('ios');
-    }
-  }
-
-  // Favourite nodes
-  function favouriteNodes() {
+  // Check required features for favourite nodes
+  if(supports.localStorage && supports.inlineSVG) {
 
     // Get heart SVG
     var xhr = new XMLHttpRequest();
@@ -45,32 +47,28 @@
       // Create heart SVG elem
       var div = document.createElement('div');
       div.innerHTML = xhr.responseText;
-      this.heart = div.firstChild;
+      var heartEl = div.firstChild;
 
       // Inject heart into DOM
-      this.title = document.querySelector('h2.node-title');
-      if(this.title) {
-        this.title.insertBefore(this.heart, this.title.firstChild);
-      }
+      DOMReady(function() {
+        var titleEl = document.querySelector('h2.node-title');
+        if(titleEl) {
+          titleEl.insertBefore(heartEl, titleEl.firstChild);
+        }
+      });
     });
     xhr.send();
   }
 
-  // Check if DOM has already loaded as we're loading async
-  ['interactive', 'complete'].indexOf(document.readyState) >= 0
-    ? init()
-    : document.addEventListener('DOMContentLoaded', init);
-
-  // When DOM is ready
-  function init() {
-
-    // Check for iOS
-    iosBodyClass();
-
-    // Check required features for favourite nodes
-    if(supports.localStorage && supports.inlineSVG) {
-      favouriteNodes();
+  // Add ios class to body on iOS devices
+  DOMReady(function() {
+    if(
+      /iPad|iPhone|iPod/.test(navigator.userAgent)
+      && !window.MSStream
+      && document.body.classList
+    ) {
+      document.body.classList.add('ios');
     }
-  }
+  });
 
 })();
