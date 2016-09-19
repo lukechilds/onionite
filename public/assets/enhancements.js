@@ -42,7 +42,7 @@
     // Get heart SVG
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/assets/heart.svg');
-    xhr.addEventListener('load', function(res) {
+    xhr.addEventListener('load', function() {
 
       // Create heart SVG elem
       var div = document.createElement('div');
