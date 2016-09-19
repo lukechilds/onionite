@@ -49,6 +49,14 @@
       div.innerHTML = xhr.responseText;
       var heartEl = div.firstChild;
 
+      // Inject heart into DOM
+      DOMReady(function() {
+        var titleEl = document.querySelector('h2.node-title');
+        if(titleEl) {
+          titleEl.insertBefore(heartEl, titleEl.firstChild);
+        }
+      });
+
       // Add click handler
       heartEl.addEventListener('click', function(e) {
 
@@ -74,14 +82,6 @@
 
         // Save new heartedNodes
         localStorage.setItem(storageKey, JSON.stringify(heartedNodes));
-      });
-
-      // Inject heart into DOM
-      DOMReady(function() {
-        var titleEl = document.querySelector('h2.node-title');
-        if(titleEl) {
-          titleEl.insertBefore(heartEl, titleEl.firstChild);
-        }
       });
     });
     xhr.send();
