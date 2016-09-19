@@ -183,6 +183,20 @@ table i {
   float: left;
 }
 
+.node-title .heart {
+  fill: transparent;
+  stroke: #fff;
+  width: 1em;
+  margin-right: 0.4em;
+  position: relative;
+  top: 0.25em;
+  transition: fill 0.2s ease;
+  cursor: pointer;
+}
+.node-title .heart:hover {
+  fill: rgba(255, 255, 255, 0.25);
+}
+
 .status {
   float: right;
   font-size: 14px;

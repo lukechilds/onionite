@@ -34,6 +34,28 @@
     }
   }
 
+  // Favourite nodes
+  function favouriteNodes() {
+
+    // Get heart SVG
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/assets/heart.svg');
+    xhr.addEventListener('load', function(res) {
+
+      // Create heart SVG elem
+      var div = document.createElement('div');
+      div.innerHTML = xhr.responseText;
+      this.heart = div.firstChild;
+
+      // Inject heart into DOM
+      this.title = document.querySelector('h2.node-title');
+      if(this.title) {
+        this.title.insertBefore(this.heart, this.title.firstChild);
+      }
+    });
+    xhr.send();
+  }
+
   // Check if DOM has already loaded as we're loading async
   ['interactive', 'complete'].indexOf(document.readyState) >= 0
     ? init()
@@ -44,6 +66,11 @@
 
     // Check for iOS
     iosBodyClass();
+
+    // Check required features for favourite nodes
+    if(supports.localStorage && supports.inlineSVG) {
+      favouriteNodes();
+    }
   }
 
 })();
