@@ -59,11 +59,12 @@
 
       // Show heart as active if we've already hearted this node
       var storageKey = 'heartedNodes';
+      var activeClass = 'hearted';
       var heartedNodes = JSON.parse(localStorage.getItem(storageKey)) || [];
       var node = /^\/node\/([a-zA-Z0-9]+)/.exec(window.location.pathname);
       node = node ? node[1] : node;
       if(heartedNodes.indexOf(node) > -1) {
-        heartEl.classList.add('hearted');
+        heartEl.classList.add(activeClass);
       }
 
       // Add click handler
@@ -75,10 +76,10 @@
 
         // Heart/unheart node
         if(nodeIndex > -1) {
-          heartEl.classList.remove('hearted');
+          heartEl.classList.remove(activeClass);
           heartedNodes.splice(nodeIndex, 1);
         } else {
-          heartEl.classList.add('hearted');
+          heartEl.classList.add(activeClass);
           heartedNodes.push(node);
         }
 
