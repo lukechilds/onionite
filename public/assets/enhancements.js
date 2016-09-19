@@ -51,11 +51,29 @@
 
       // Add click handler
       heartEl.addEventListener('click', function(e) {
+
+        // Setup vars
+        var storageKey = 'heartedNodes';
+        var heartedNodes = JSON.parse(localStorage.getItem(storageKey)) || [];
+        var node = /^\/node\/([a-zA-Z0-9]+)/.exec(window.location.pathname);
+        node = node ? node[1] : node;
+        var nodeIndex = heartedNodes.indexOf(node);
+
+        // Heart/unheart node
         if(heartEl.classList.contains('hearted')) {
           heartEl.classList.remove('hearted');
+          if(nodeIndex > -1) {
+            heartedNodes.splice(nodeIndex, 1);
+          }
         } else {
           heartEl.classList.add('hearted');
+          if(nodeIndex == -1) {
+            heartedNodes.push(node);
+          }
         }
+
+        // Save new heartedNodes
+        localStorage.setItem(storageKey, JSON.stringify(heartedNodes));
       });
 
       // Inject heart into DOM
