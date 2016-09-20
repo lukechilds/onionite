@@ -126,6 +126,10 @@ h1 {
   height: 0.125em;
   border-top: 0.375em double #b24592;
   border-bottom: 0.125em solid #b24592;
+  transition: border-color 0.2s ease;
+}
+.menu:hover:before {
+  border-color: #f15f79;
 }
 
 /* Main */
