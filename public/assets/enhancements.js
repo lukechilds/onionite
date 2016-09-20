@@ -53,58 +53,109 @@
     classList: 'classList' in document.createElement('div')
   });
 
-  // Check required features for favourite nodes
+  // Favourite nodes
+  var favouriteNodes = {
+
+    // Key used in localStorage
+    storageKey: 'heartedNodes',
+
+    // Url to heart SVG
+    heartPath: '/assets/heart.svg',
+
+    // Class added to heart SVG element when active
+    activeClass: 'hearted',
+
+    // Gets current node hash
+    getCurrentNode: function() {
+      var node = /^\/node\/([a-zA-Z0-9]+)/.exec(window.location.pathname);
+      return node ? node[1] : node;
+    },
+
+    // Gets hearted nodes
+    getHeartedNodes: function() {
+      return JSON.parse(localStorage.getItem(favouriteNodes.storageKey)) || [];
+    },
+
+    // Saves hearted nodes
+    saveHeartedNodes: function(heartedNodes) {
+      return localStorage.setItem(favouriteNodes.storageKey, JSON.stringify(heartedNodes));
+    },
+
+    // Checks if node is hearted
+    isHearted: function(node) {
+      return favouriteNodes.getHeartedNodes().indexOf(node) > -1;
+    },
+
+    // Heart node
+    heart: function(node) {
+      var heartedNodes = favouriteNodes.getHeartedNodes();
+      heartedNodes.push(node);
+      return favouriteNodes.saveHeartedNodes(heartedNodes);
+    },
+
+    // Unheart node
+    unHeart: function(node) {
+      var heartedNodes = favouriteNodes.getHeartedNodes();
+      var nodeIndex = heartedNodes.indexOf(node);
+      heartedNodes.splice(nodeIndex, 1);
+      return favouriteNodes.saveHeartedNodes(heartedNodes);
+    },
+
+    // Load SVG, run callback when loaded
+    loadSVG: function(cb) {
+
+      // Get heart SVG
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', favouriteNodes.heartPath);
+      xhr.addEventListener('load', function() {
+
+        // Create heart SVG elem
+        var div = document.createElement('div');
+        div.innerHTML = xhr.responseText;
+        favouriteNodes.heartEl = div.firstChild;
+
+        // Show heart as active if we've already hearted this node
+        var node = favouriteNodes.getCurrentNode();
+        if(favouriteNodes.isHearted(node)) {
+          favouriteNodes.heartEl.classList.add(favouriteNodes.activeClass);
+        }
+
+        // Add click handler
+        favouriteNodes.heartEl.addEventListener('click', function() {
+
+          // Heart/unheart node
+          var node = favouriteNodes.getCurrentNode();
+          if(favouriteNodes.isHearted(node)) {
+            favouriteNodes.heartEl.classList.remove(favouriteNodes.activeClass);
+            favouriteNodes.unHeart(node);
+          } else {
+            favouriteNodes.heartEl.classList.add(favouriteNodes.activeClass);
+            favouriteNodes.heart(node);
+          }
+        });
+
+        // Run callback
+        cb(favouriteNodes.heartEl);
+      });
+      xhr.send();
+    }
+  };
+
+  // Init favourite nodes
   if(supports.test(['localStorage', 'inlineSVG', 'querySelector', 'classList'])) {
 
-    // Get heart SVG
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/assets/heart.svg');
-    xhr.addEventListener('load', function() {
+    // Start loading heart SVG before DOM
+    favouriteNodes.loadSVG(function(heartEl) {
 
-      // Create heart SVG elem
-      var div = document.createElement('div');
-      div.innerHTML = xhr.responseText;
-      var heartEl = div.firstChild;
-
-      // Inject heart into DOM
+      // Then inject into DOM when it's ready
       DOMReady(function() {
         var titleEl = document.querySelector('h2.node-title');
         if(titleEl) {
           titleEl.insertBefore(heartEl, titleEl.firstChild);
         }
       });
-
-      // Show heart as active if we've already hearted this node
-      var storageKey = 'heartedNodes';
-      var activeClass = 'hearted';
-      var heartedNodes = JSON.parse(localStorage.getItem(storageKey)) || [];
-      var node = /^\/node\/([a-zA-Z0-9]+)/.exec(window.location.pathname);
-      node = node ? node[1] : node;
-      if(heartedNodes.indexOf(node) > -1) {
-        heartEl.classList.add(activeClass);
-      }
-
-      // Add click handler
-      heartEl.addEventListener('click', function(e) {
-
-        // Recheck localStorage
-        var heartedNodes = JSON.parse(localStorage.getItem(storageKey)) || [];
-        var nodeIndex = heartedNodes.indexOf(node);
-
-        // Heart/unheart node
-        if(nodeIndex > -1) {
-          heartEl.classList.remove(activeClass);
-          heartedNodes.splice(nodeIndex, 1);
-        } else {
-          heartEl.classList.add(activeClass);
-          heartedNodes.push(node);
-        }
-
-        // Save new heartedNodes
-        localStorage.setItem(storageKey, JSON.stringify(heartedNodes));
-      });
     });
-    xhr.send();
+
   }
 
   // Add ios class to body on iOS devices
