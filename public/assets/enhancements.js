@@ -13,8 +13,24 @@
     }
   }
 
-  // Feature detection
-  var supports = {
+  // Feature tester
+  function FeatureTester(tests) {
+    var self = this;
+
+    self.tests = tests;
+
+    self.test = function(features) {
+      if(!features || !features.length) {
+        return false;
+      }
+      return features.every(function(feature) {
+        return self.tests[feature];
+      });
+    }
+  }
+
+  // Init once, don't re-detect features each time
+  var supports = new FeatureTester({
     localStorage: (function() {
       try {
         localStorage.setItem('test', 'test');
@@ -35,10 +51,10 @@
     })(),
     querySelector: typeof document.querySelector === 'function',
     classList: 'classList' in document.createElement('div')
-  };
+  });
 
   // Check required features for favourite nodes
-  if(supports.localStorage && supports.inlineSVG && supports.querySelector && supports.classList) {
+  if(supports.test(['localStorage', 'inlineSVG', 'querySelector', 'classList'])) {
 
     // Get heart SVG
     var xhr = new XMLHttpRequest();
@@ -92,7 +108,7 @@
   }
 
   // Add ios class to body on iOS devices
-  if(supports.classList) {
+  if(supports.test(['classList'])) {
     DOMReady(function() {
       if(
         /iPad|iPhone|iPod/.test(navigator.userAgent)
