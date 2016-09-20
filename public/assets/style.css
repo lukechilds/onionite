@@ -121,8 +121,8 @@ h1 {
   content: "";
   position: absolute;
   top: 0.3em;
-  left: 0.15em;
-  width: 1em;
+  left: 0.25em;
+  width: 0.8em;
   height: 0.125em;
   border-top: 0.375em double #b24592;
   border-bottom: 0.125em solid #b24592;
