@@ -164,7 +164,6 @@
       DOMReady(function() {
         var menuButton = create('div');
         menuButton.classList.add('menu');
-        menuButton.innerHTML = '&#9776;';
         menuButton.style.height = elem('.title').offsetHeight + 'px';
         elem('header .wrapper').appendChild(menuButton);
       });

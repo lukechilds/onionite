@@ -111,13 +111,21 @@ h1 {
 }
 
 .menu {
+  position: relative;
   width: 4rem;
-  border-right: 1px solid #eee;
-  text-align: center;
-  line-height: 1.1em;
   font-size: 3em;
-  color: #b24592;
+  border-right: 1px solid #eee;
   cursor: pointer;
+}
+.menu:before {
+  content: "";
+  position: absolute;
+  top: 0.3em;
+  left: 0.15em;
+  width: 1em;
+  height: 0.125em;
+  border-top: 0.375em double #b24592;
+  border-bottom: 0.125em solid #b24592;
 }
 
 /* Main */
