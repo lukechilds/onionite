@@ -1,15 +1,20 @@
 (function() {
 
+  // Space optimisations
+  var doc = document;
+  var elem = doc.querySelector.bind(doc);
+  var create = doc.createElement.bind(doc);
+
   // Run callback when DOM is ready
   function DOMReady(fn) {
 
     // Run now if DOM has already loaded as we're loading async
-    if(['interactive', 'complete'].indexOf(document.readyState) >= 0) {
+    if(['interactive', 'complete'].indexOf(doc.readyState) >= 0) {
       fn();
 
     // Otherwise wait for DOM
     } else {
-      document.addEventListener('DOMContentLoaded', fn);
+      doc.addEventListener('DOMContentLoaded', fn);
     }
   }
 
@@ -41,7 +46,7 @@
       }
     })(),
     inlineSVG: (function() {
-      var div = document.createElement('div');
+      var div = create('div');
       div.innerHTML = '<svg/>';
       return (
         typeof SVGRect != 'undefined'
@@ -49,8 +54,8 @@
         && div.firstChild.namespaceURI
       ) == 'http://www.w3.org/2000/svg';
     })(),
-    querySelector: typeof document.querySelector === 'function',
-    classList: 'classList' in document.createElement('div')
+    querySelector: typeof doc.querySelector === 'function',
+    classList: 'classList' in create('div')
   });
 
   // Favourite nodes
@@ -110,7 +115,7 @@
       xhr.addEventListener('load', function() {
 
         // Create heart SVG elem
-        var div = document.createElement('div');
+        var div = create('div');
         div.innerHTML = xhr.responseText;
         var heartEl = div.firstChild;
 
@@ -148,7 +153,7 @@
 
         // Then inject into DOM when it's ready
         DOMReady(function() {
-          var titleEl = document.querySelector('h2.node-title');
+          var titleEl = elem('h2.node-title');
           if(titleEl) {
             titleEl.insertBefore(heartEl, titleEl.firstChild);
           }
@@ -157,11 +162,11 @@
 
       // Inject menu button into DOM
       DOMReady(function() {
-        var menuButton = document.createElement('div');
+        var menuButton = create('div');
         menuButton.classList.add('menu');
         menuButton.innerHTML = '&#9776;';
-        menuButton.style.height = document.querySelector('.title').offsetHeight + 'px';
-        document.querySelector('header .wrapper').appendChild(menuButton);
+        menuButton.style.height = elem('.title').offsetHeight + 'px';
+        elem('header .wrapper').appendChild(menuButton);
       });
     }
   };
@@ -177,9 +182,9 @@
       if(
         /iPad|iPhone|iPod/.test(navigator.userAgent)
         && !window.MSStream
-        && document.body.classList
+        && doc.body.classList
       ) {
-        document.body.classList.add('ios');
+        doc.body.classList.add('ios');
       }
     });
   }
