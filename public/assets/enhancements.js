@@ -55,7 +55,11 @@
       ) == 'http://www.w3.org/2000/svg';
     })(),
     querySelector: typeof doc.querySelector === 'function',
-    classList: 'classList' in create('div')
+    classList: (function() {
+      var div = create('div');
+      div.innerHTML = '<svg/>';
+      return 'classList' in div.firstChild;
+    })(),
   });
 
   // Favourite nodes
