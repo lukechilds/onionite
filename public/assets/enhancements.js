@@ -138,24 +138,37 @@
         cb(favouriteNodes.heartEl);
       });
       xhr.send();
+    },
+
+    // Initiate node favouriting
+    init: function() {
+
+      // Start loading heart SVG before DOM
+      favouriteNodes.loadSVG(function(heartEl) {
+
+        // Then inject into DOM when it's ready
+        DOMReady(function() {
+          var titleEl = document.querySelector('h2.node-title');
+          if(titleEl) {
+            titleEl.insertBefore(heartEl, titleEl.firstChild);
+          }
+        });
+      });
+
+      // Inject menu button into DOM
+      DOMReady(function() {
+        var menuButton = document.createElement('div');
+        menuButton.classList.add('menu');
+        menuButton.innerHTML = '&#9776;';
+        menuButton.style.height = document.querySelector('.title').offsetHeight + 'px';
+        document.querySelector('header .wrapper').appendChild(menuButton);
+      });
     }
   };
 
   // Init favourite nodes
   if(supports.test(['localStorage', 'inlineSVG', 'querySelector', 'classList'])) {
-
-    // Start loading heart SVG before DOM
-    favouriteNodes.loadSVG(function(heartEl) {
-
-      // Then inject into DOM when it's ready
-      DOMReady(function() {
-        var titleEl = document.querySelector('h2.node-title');
-        if(titleEl) {
-          titleEl.insertBefore(heartEl, titleEl.firstChild);
-        }
-      });
-    });
-
+    favouriteNodes.init();
   }
 
   // Add ios class to body on iOS devices

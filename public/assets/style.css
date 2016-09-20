@@ -110,6 +110,16 @@ h1 {
   outline: 0;
 }
 
+.menu {
+  width: 4rem;
+  border-right: 1px solid #eee;
+  text-align: center;
+  line-height: 1.1em;
+  font-size: 3em;
+  color: #b24592;
+  cursor: pointer;
+}
+
 /* Main */
 main {
   padding-top: 5.6em;
@@ -399,7 +409,7 @@ footer {
 /* Small Mobile */
 @media (max-width: 500px) {
 
-  /* Center title and move searchbar below */
+  /* Move searchbar below title */
   header {
     position: static;
   }
@@ -412,7 +422,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    text-align: center;
+    padding-left: 1em;
     background: #fff;
     box-shadow: 0px 3px #eaeaea;
   }
@@ -432,6 +442,13 @@ footer {
   .search input {
     font-size: 20px;
     padding: 0.4em 0.2em;
+  }
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    border-left: 1px solid #eee;
   }
   main {
     padding-top: 8.5em;
