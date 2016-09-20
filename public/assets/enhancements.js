@@ -112,30 +112,30 @@
         // Create heart SVG elem
         var div = document.createElement('div');
         div.innerHTML = xhr.responseText;
-        favouriteNodes.heartEl = div.firstChild;
+        var heartEl = div.firstChild;
 
         // Show heart as active if we've already hearted this node
         var node = favouriteNodes.getCurrentNode();
         if(favouriteNodes.isHearted(node)) {
-          favouriteNodes.heartEl.classList.add(favouriteNodes.activeClass);
+          heartEl.classList.add(favouriteNodes.activeClass);
         }
 
         // Add click handler
-        favouriteNodes.heartEl.addEventListener('click', function() {
+        heartEl.addEventListener('click', function() {
 
           // Heart/unheart node
           var node = favouriteNodes.getCurrentNode();
           if(favouriteNodes.isHearted(node)) {
-            favouriteNodes.heartEl.classList.remove(favouriteNodes.activeClass);
+            heartEl.classList.remove(favouriteNodes.activeClass);
             favouriteNodes.unHeart(node);
           } else {
-            favouriteNodes.heartEl.classList.add(favouriteNodes.activeClass);
+            heartEl.classList.add(favouriteNodes.activeClass);
             favouriteNodes.heart(node);
           }
         });
 
         // Run callback
-        cb(favouriteNodes.heartEl);
+        cb(heartEl);
       });
       xhr.send();
     },
