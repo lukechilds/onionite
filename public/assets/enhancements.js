@@ -33,11 +33,12 @@
         && div.firstChild.namespaceURI
       ) == 'http://www.w3.org/2000/svg';
     })(),
-    querySelector: typeof document.querySelector === 'function'
+    querySelector: typeof document.querySelector === 'function',
+    classList: 'classList' in document.createElement('div')
   };
 
   // Check required features for favourite nodes
-  if(supports.localStorage && supports.inlineSVG && supports.querySelector) {
+  if(supports.localStorage && supports.inlineSVG && supports.querySelector && supports.classList) {
 
     // Get heart SVG
     var xhr = new XMLHttpRequest();
@@ -91,14 +92,16 @@
   }
 
   // Add ios class to body on iOS devices
-  DOMReady(function() {
-    if(
-      /iPad|iPhone|iPod/.test(navigator.userAgent)
-      && !window.MSStream
-      && document.body.classList
-    ) {
-      document.body.classList.add('ios');
-    }
-  });
+  if(supports.classList) {
+    DOMReady(function() {
+      if(
+        /iPad|iPhone|iPod/.test(navigator.userAgent)
+        && !window.MSStream
+        && document.body.classList
+      ) {
+        document.body.classList.add('ios');
+      }
+    });
+  }
 
 })();
