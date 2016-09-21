@@ -329,10 +329,27 @@ footer {
   top: 0;
   right: 0;
   width: 100%;
-  background: rgba(255,255,255,0.9);
+  background: #fff;
   z-index: 1;
   height: 100%;
   max-width: 500px;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 0.4em 0.7em;
+  font-size: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease
+}
+.menu a:hover {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* Large desktop */
