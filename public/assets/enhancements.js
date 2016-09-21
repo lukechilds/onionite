@@ -114,6 +114,21 @@
       return favouriteNodes.saveHeartedNodes(heartedNodes);
     },
 
+    // Get list of hearted nodes
+    updateHeartedNodesList: function() {
+      var menu = elem('.menu');
+      if(!menu) {
+        return false;
+      }
+      var list = '<ul>';
+      var heartedNodes = favouriteNodes.getHeartedNodes();
+      Object.keys(heartedNodes).forEach(function(node) {
+        list += '<li><a href="/node/' + node + '">' + heartedNodes[node] + '</a></li>';
+      });
+      list += '</ul>';
+      return menu.innerHTML = list;
+    },
+
     // Load SVG, run callback when loaded
     loadSVG: function(cb) {
 
@@ -185,6 +200,7 @@
         menu.style.top = (headerHeight + headerBoxShadow) + 'px';
         menu.style.height = 'calc(100% - ' + (headerHeight + headerBoxShadow) + 'px)';
         document.body.appendChild(menu);
+        favouriteNodes.updateHeartedNodesList();
       });
 
       // If current node is hearted
