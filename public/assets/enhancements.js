@@ -196,6 +196,10 @@
         var menuButton = create('div');
         menuButton.classList.add('menu-button');
         menuButton.style.height = headerHeight + 'px';
+        menuButton.addEventListener('click', function() {
+          favouriteNodes.updateHeartedNodesList();
+          elem('.menu').classList.toggle('active');
+        });
         elem('header .wrapper').appendChild(menuButton);
 
         // Menu

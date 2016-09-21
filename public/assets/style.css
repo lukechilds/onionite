@@ -333,6 +333,11 @@ footer {
   z-index: 1;
   height: 100%;
   max-width: 500px;
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+.menu.active {
+  transform: translateX(0%);
 }
 
 .menu ul {
