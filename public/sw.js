@@ -1,4 +1,5 @@
-var cacheName = 'top-explorer-cache-v1';
+var cacheName   = 'top-explorer-cache-v1';
+var offlineUrl  = '/no-connection';
 
 // Install
 self.addEventListener('install', function(event) {
@@ -8,6 +9,7 @@ self.addEventListener('install', function(event) {
     caches.open(cacheName)
       .then(function(cache) {
         return cache.addAll([
+          offlineUrl,
           '/assets/style.css',
           '/assets/enhancements.js',
           '/assets/iconfont.woff',
@@ -30,6 +32,20 @@ self.addEventListener('fetch', function(event) {
   if(requestUrl.pathname.startsWith('/assets/')) {
     checkCacheFirst(event);
     return;
+  }
+
+  // If we navigate to a page
+  if(event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+
+        // and it fails
+        .catch(function() {
+
+          // Show pretty offline page
+          return caches.match(offlineUrl);
+        })
+    );
   }
 });
 
