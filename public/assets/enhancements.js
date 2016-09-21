@@ -104,14 +104,18 @@
     heart: function(node) {
       var heartedNodes = favouriteNodes.getHeartedNodes();
       heartedNodes[node] = favouriteNodes.getCurrentNodeTitle();
-      return favouriteNodes.saveHeartedNodes(heartedNodes);
+      favouriteNodes.saveHeartedNodes(heartedNodes);
+      favouriteNodes.updateHeartedNodesList();
+      return heartedNodes;
     },
 
     // Unheart node
     unHeart: function(node) {
       var heartedNodes = favouriteNodes.getHeartedNodes();
       delete heartedNodes[node];
-      return favouriteNodes.saveHeartedNodes(heartedNodes);
+      favouriteNodes.saveHeartedNodes(heartedNodes);
+      favouriteNodes.updateHeartedNodesList();
+      return heartedNodes;
     },
 
     // Get list of hearted nodes
