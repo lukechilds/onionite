@@ -175,6 +175,14 @@
         menuButton.style.height = elem('.title').offsetHeight + 'px';
         elem('header .wrapper').appendChild(menuButton);
       });
+
+      // If current node is hearted
+      var node = favouriteNodes.getCurrentNode();
+      if(favouriteNodes.isHearted(node)) {
+
+        // Heart it again so we get the new name if it's updated
+        favouriteNodes.heart(node);
+      }
     }
   };
 
