@@ -18,49 +18,44 @@
     }
   }
 
-  // Feature tester
-  function FeatureTester(tests) {
-    var self = this;
-
-    self.tests = tests;
-
-    self.test = function(features) {
+  // Feature detection
+  var supports = {
+    test: function(features) {
+      var self = this;
       if(!features || !features.length) {
         return false;
       }
       return features.every(function(feature) {
         return self.tests[feature];
       });
+    },
+    tests: {
+      localStorage: (function() {
+        try {
+          localStorage.setItem('test', 'test');
+          localStorage.removeItem('test');
+          return true;
+        } catch (e) {
+          return false;
+        }
+      })(),
+      inlineSVG: (function() {
+        var div = create('div');
+        div.innerHTML = '<svg/>';
+        return (
+          typeof SVGRect != 'undefined'
+          && div.firstChild
+          && div.firstChild.namespaceURI
+        ) == 'http://www.w3.org/2000/svg';
+      })(),
+      querySelector: typeof doc.querySelector === 'function',
+      classList: (function() {
+        var div = create('div');
+        div.innerHTML = '<svg/>';
+        return 'classList' in div.firstChild;
+      })(),
     }
-  }
-
-  // Init once, don't re-detect features each time
-  var supports = new FeatureTester({
-    localStorage: (function() {
-      try {
-        localStorage.setItem('test', 'test');
-        localStorage.removeItem('test');
-        return true;
-      } catch (e) {
-        return false;
-      }
-    })(),
-    inlineSVG: (function() {
-      var div = create('div');
-      div.innerHTML = '<svg/>';
-      return (
-        typeof SVGRect != 'undefined'
-        && div.firstChild
-        && div.firstChild.namespaceURI
-      ) == 'http://www.w3.org/2000/svg';
-    })(),
-    querySelector: typeof doc.querySelector === 'function',
-    classList: (function() {
-      var div = create('div');
-      div.innerHTML = '<svg/>';
-      return 'classList' in div.firstChild;
-    })(),
-  });
+  };
 
   // Favourite nodes
   var favouriteNodes = {
