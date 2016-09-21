@@ -358,6 +358,11 @@ footer {
   background: rgba(0, 0, 0, 0.1);
 }
 
+.menu .empty {
+  padding: 1em;
+  font-size: 18px;
+}
+
 /* Large desktop */
 @media (min-width: 1230px) {
   pre {

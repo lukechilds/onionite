@@ -119,13 +119,19 @@
       if(!menu) {
         return false;
       }
-      var list = '<ul>';
+      var menuHTML = '';
       var heartedNodes = favouriteNodes.getHeartedNodes();
-      Object.keys(heartedNodes).forEach(function(node) {
-        list += '<li><a href="/node/' + node + '">' + heartedNodes[node] + '</a></li>';
-      });
-      list += '</ul>';
-      return menu.innerHTML = list;
+      var nodeHashes = Object.keys(heartedNodes);
+      if(nodeHashes.length) {
+        menuHTML += '<ul>';
+        nodeHashes.forEach(function(node) {
+          menuHTML += '<li><a href="/node/' + node + '">' + heartedNodes[node] + '</a></li>';
+        });
+        menuHTML += '</ul>';
+      } else {
+        menuHTML += '<div class="empty">Click the heart on a node page to save it here for easy access :)</div>';
+      }
+      return menu.innerHTML = menuHTML;
     },
 
     // Load SVG, run callback when loaded
