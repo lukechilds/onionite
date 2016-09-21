@@ -82,7 +82,7 @@
 
     // Gets hearted nodes
     getHeartedNodes: function() {
-      return JSON.parse(localStorage.getItem(favouriteNodes.storageKey)) || [];
+      return JSON.parse(localStorage.getItem(favouriteNodes.storageKey)) || {};
     },
 
     // Saves hearted nodes
@@ -92,21 +92,20 @@
 
     // Checks if node is hearted
     isHearted: function(node) {
-      return favouriteNodes.getHeartedNodes().indexOf(node) > -1;
+      return typeof favouriteNodes.getHeartedNodes()[node] !== 'undefined';
     },
 
     // Heart node
     heart: function(node) {
       var heartedNodes = favouriteNodes.getHeartedNodes();
-      heartedNodes.push(node);
+      heartedNodes[node] = true;
       return favouriteNodes.saveHeartedNodes(heartedNodes);
     },
 
     // Unheart node
     unHeart: function(node) {
       var heartedNodes = favouriteNodes.getHeartedNodes();
-      var nodeIndex = heartedNodes.indexOf(node);
-      heartedNodes.splice(nodeIndex, 1);
+      delete heartedNodes[node];
       return favouriteNodes.saveHeartedNodes(heartedNodes);
     },
 
