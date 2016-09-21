@@ -168,12 +168,23 @@
         });
       });
 
-      // Inject menu button into DOM
+      // Inject elems into DOM
       DOMReady(function() {
+        var headerHeight = elem('.title').offsetHeight;
+        var headerBoxShadow = 3;
+
+        // Menu button
         var menuButton = create('div');
-        menuButton.classList.add('menu');
-        menuButton.style.height = elem('.title').offsetHeight + 'px';
+        menuButton.classList.add('menu-button');
+        menuButton.style.height = headerHeight + 'px';
         elem('header .wrapper').appendChild(menuButton);
+
+        // Menu
+        var menu = create('div');
+        menu.classList.add('menu');
+        menu.style.top = (headerHeight + headerBoxShadow) + 'px';
+        menu.style.height = 'calc(100% - ' + (headerHeight + headerBoxShadow) + 'px)';
+        document.body.appendChild(menu);
       });
 
       // If current node is hearted

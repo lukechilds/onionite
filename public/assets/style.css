@@ -110,14 +110,14 @@ h1 {
   outline: 0;
 }
 
-.menu {
+.menu-button {
   position: relative;
   width: 4rem;
   font-size: 3em;
   border-right: 1px solid #eee;
   cursor: pointer;
 }
-.menu:before {
+.menu-button:before {
   content: "";
   position: absolute;
   top: 0.3em;
@@ -128,7 +128,7 @@ h1 {
   border-bottom: 0.125em solid #b24592;
   transition: border-color 0.2s ease;
 }
-.menu:hover:before {
+.menu-button:hover:before {
   border-color: #f15f79;
 }
 
@@ -323,6 +323,18 @@ footer {
   float: right;
 }
 
+/* Menu */
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  z-index: 1;
+  height: 100%;
+  max-width: 500px;
+}
+
 /* Large desktop */
 @media (min-width: 1230px) {
   pre {
@@ -455,7 +467,7 @@ footer {
     font-size: 20px;
     padding: 0.4em 0.2em;
   }
-  .menu {
+  .menu-button {
     position: fixed;
     top: 0;
     right: 0;
