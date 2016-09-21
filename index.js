@@ -23,6 +23,7 @@ app.use(minify);
 app.get('/', controllers.listing);
 app.get('/node/:id', controllers.node);
 app.get('/about', controllers.about);
+app.get('/no-connection', controllers.noConnection);
 
 // Serve assets with cache headers
 app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
