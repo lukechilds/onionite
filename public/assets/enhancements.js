@@ -80,6 +80,11 @@
       return node ? node[1] : node;
     },
 
+    // Gets current node title
+    getCurrentNodeTitle: function() {
+      return elem('h2.node-title .name').innerText;
+    },
+
     // Gets hearted nodes
     getHeartedNodes: function() {
       return JSON.parse(localStorage.getItem(favouriteNodes.storageKey)) || {};
@@ -98,7 +103,7 @@
     // Heart node
     heart: function(node) {
       var heartedNodes = favouriteNodes.getHeartedNodes();
-      heartedNodes[node] = true;
+      heartedNodes[node] = favouriteNodes.getCurrentNodeTitle();
       return favouriteNodes.saveHeartedNodes(heartedNodes);
     },
 
