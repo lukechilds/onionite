@@ -54,6 +54,7 @@
         div.innerHTML = '<svg/>';
         return 'classList' in div.firstChild;
       })(),
+      serviceWorker: 'serviceWorker' in navigator
     }
   };
 
@@ -221,6 +222,11 @@
       }
     }
   };
+
+  // Register service worker
+  if(supports.test(['serviceWorker'])) {
+    navigator.serviceWorker.register('/sw.js');
+  }
 
   // Init favourite nodes
   if(supports.test(['localStorage', 'inlineSVG', 'querySelector', 'classList'])) {
