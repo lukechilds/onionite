@@ -2,7 +2,7 @@
 
   // Space optimisations
   var doc = document;
-  var elem = doc.querySelector.bind(doc);
+  var find = doc.querySelector.bind(doc);
   var create = doc.createElement.bind(doc);
 
   // Run callback when DOM is ready
@@ -77,7 +77,7 @@
 
     // Gets current node title
     getCurrentNodeTitle: function() {
-      return elem('h2.node-title .name').innerText;
+      return find('h2.node-title .name').innerText;
     },
 
     // Gets hearted nodes
@@ -115,7 +115,7 @@
 
     // Get list of hearted nodes
     updateHeartedNodesList: function() {
-      var menu = elem('.menu');
+      var menu = find('.menu');
       if(!menu) {
         return false;
       }
@@ -175,7 +175,7 @@
 
         // Then inject into DOM when it's ready
         DOMReady(function() {
-          var titleEl = elem('h2.node-title');
+          var titleEl = find('h2.node-title');
           if(titleEl) {
             titleEl.insertBefore(heartEl, titleEl.firstChild);
           }
@@ -184,7 +184,7 @@
 
       // Inject elems into DOM
       DOMReady(function() {
-        var headerHeight = elem('.title').offsetHeight;
+        var headerHeight = find('.title').offsetHeight;
         var headerBoxShadow = 3;
 
         // Menu button
@@ -193,9 +193,9 @@
         menuButton.style.height = headerHeight + 'px';
         menuButton.addEventListener('click', function() {
           favouriteNodes.updateHeartedNodesList();
-          elem('.menu').classList.toggle('active');
+          find('.menu').classList.toggle('active');
         });
-        elem('header .wrapper').appendChild(menuButton);
+        find('header .wrapper').appendChild(menuButton);
 
         // Menu
         var menu = create('div');
