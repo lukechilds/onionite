@@ -52,8 +52,17 @@ self.addEventListener('fetch', function(event) {
         // If it fails
         .catch(function() {
 
-          // Show pretty offline page
-          return caches.match(offlineUrl);
+          // Try and return cached version
+          return caches.match(event.request)
+              .then(function(response) {
+                if (response) {
+                  return response;
+                }
+
+                // If we don't have a cached version
+                // show pretty offline page
+                return caches.match(offlineUrl);
+              });
         })
     );
   }
