@@ -514,6 +514,16 @@ footer {
     padding-top: 8.5em;
   }
 
+  /* Hide searchbar on about and no-connection page */
+  .about .search,
+  .no-connection .search {
+    display: none;
+  }
+  .about main,
+  .no-connection main {
+    padding-top: 4.5em;
+  }
+
   /* Clear float on node title/status */
   .node-title,
   .status {
