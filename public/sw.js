@@ -39,7 +39,17 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
       fetch(event.request)
 
-        // and it fails
+        // Cache the latest response for certain pages
+        .then(function(response) {
+          if(requestUrl.pathname === '/') {
+            caches.open(cacheName).then(function(cache) {
+              cache.put(event.request, response.clone());
+            });
+          }
+          return response;
+        })
+
+        // If it fails
         .catch(function() {
 
           // Show pretty offline page
