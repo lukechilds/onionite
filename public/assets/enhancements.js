@@ -251,7 +251,6 @@
       if(
         /iPad|iPhone|iPod/.test(navigator.userAgent)
         && !window.MSStream
-        && doc.body.classList
       ) {
         doc.body.classList.add('ios');
       }
