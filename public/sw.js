@@ -37,30 +37,33 @@ self.addEventListener('fetch', function(event) {
   // If we navigate to a page
   if(event.request.mode === 'navigate') {
     event.respondWith(
+
+      // Make the request
       fetch(event.request)
 
-        // Cache the latest response for certain pages
+        // Cache the response for certain pages
         .then(function(response) {
           if(requestUrl.pathname === '/') {
             caches.open(cacheName).then(function(cache) {
               cache.put(event.request, response.clone());
             });
           }
+
+          // Return the response as normal
           return response;
         })
 
         // If it fails
         .catch(function() {
 
-          // Try and return cached version
+          // Try and return a previously cached version
           return caches.match(event.request)
               .then(function(response) {
                 if (response) {
                   return response;
                 }
 
-                // If we don't have a cached version
-                // show pretty offline page
+                // If we don't have a cached version show pretty offline page
                 return caches.match(offlineUrl);
               });
         })
