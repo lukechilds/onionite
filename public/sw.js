@@ -76,14 +76,14 @@ self.addEventListener('fetch', function(event) {
 
           // Try and return a previously cached version
           return caches.match(event.request)
-              .then(function(response) {
-                if (response) {
-                  return response;
-                }
+            .then(function(response) {
+              if (response) {
+                return response;
+              }
 
-                // If we don't have a cached version show pretty offline page
-                return caches.match(offlineUrl);
-              });
+              // If we don't have a cached version show pretty offline page
+              return caches.match(offlineUrl);
+            });
         })
     );
   }
