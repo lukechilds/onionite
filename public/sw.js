@@ -56,7 +56,14 @@ self.addEventListener('fetch', function(event) {
         .then(function(response) {
           if(requestUrl.pathname === '/') {
             caches.open(cacheName).then(function(cache) {
-              cache.put(event.request, response.clone());
+
+              // Modify the response html so we know when it was cached
+              response.clone().text().then(function(html) {
+                html = html.replace('window.cacheDate=false;', 'window.cacheDate="'+Date()+'";');
+                var modifiedResponse = new Response(new Blob([html]), { headers: response.headers });
+                cache.put(event.request, modifiedResponse);
+              });
+
             });
           }
 

@@ -224,8 +224,20 @@
   };
 
   // Register service worker
-  if(supports.test(['serviceWorker'])) {
+  if(supports.test(['serviceWorker', 'querySelector', 'classList'])) {
     navigator.serviceWorker.register('/sw.js');
+    DOMReady(function() {
+      if(window.cacheDate) {
+        var offlineMessage = create('div');
+        offlineMessage.classList.add('cache-message');
+        offlineMessage.innerText = '*There seems to be an issue connecting to the server. This is a cached version of this page from ' + window.cacheDate;
+        var main = find('main');
+        if(main) {
+          doc.body.classList.add('no-connection');
+          main.insertBefore(offlineMessage, main.firstChild);
+        }
+      }
+    });
   }
 
   // Init favourite nodes
