@@ -28,9 +28,20 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Always check cache for assets
+  // Try cache first for assets
   if(requestUrl.pathname.startsWith('/assets/')) {
-    checkCacheFirst(event);
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          if (response) {
+            return response;
+          }
+
+          // If we don't have it make the request
+          return fetch(event.request);
+        }
+      )
+    );
     return;
   }
 
@@ -70,17 +81,3 @@ self.addEventListener('fetch', function(event) {
     );
   }
 });
-
-// Try cache first, if we don't have it make the request
-function checkCacheFirst(event) {
-  return event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
-}
