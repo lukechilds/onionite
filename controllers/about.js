@@ -1,1 +1,4 @@
-module.exports = (req, res) => res.render('about.html', { pageTitle: 'About' });
+module.exports = (req, res) => res.render('about.html', {
+  bodyClass: 'about',
+  pageTitle: 'About'
+});
