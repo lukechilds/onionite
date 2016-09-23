@@ -63,7 +63,6 @@ self.addEventListener('fetch', function(event) {
                 var modifiedResponse = new Response(new Blob([html]), { headers: response.headers });
                 cache.put(event.request, modifiedResponse);
               });
-
             });
           }
 
