@@ -114,22 +114,16 @@ h1 {
   position: relative;
   width: 4rem;
   font-size: 3em;
+  text-align: center;
   border-right: 1px solid #eee;
   cursor: pointer;
 }
-.menu-button:before {
-  content: "";
-  position: absolute;
-  top: 0.3em;
-  left: 0.25em;
-  width: 0.8em;
-  height: 0.125em;
-  border-top: 0.375em double #b24592;
-  border-bottom: 0.125em solid #b24592;
-  transition: border-color 0.2s ease;
+.menu-button .heart {
+  fill: #b24592;
+  transition: fill 0.2s ease;
 }
-.menu-button:hover:before {
-  border-color: #f15f79;
+.menu-button:hover .heart {
+  fill: #f15f79;
 }
 
 /* Main */

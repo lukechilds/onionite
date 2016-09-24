@@ -182,35 +182,34 @@
 
         // Then inject into DOM when it's ready
         DOMReady(function() {
+          var headerHeight = find('.title').offsetHeight;
+          var headerBoxShadow = 3;
+
+          // Heart
           var titleEl = find('h2.node-title');
           if(titleEl) {
             titleEl.insertBefore(heartEl, titleEl.firstChild);
           }
-        });
-      });
 
-      // Inject elems into DOM
-      DOMReady(function() {
-        var headerHeight = find('.title').offsetHeight;
-        var headerBoxShadow = 3;
+          // Menu button
+          var menuButton = create('div');
+          menuButton.classList.add('menu-button');
+          menuButton.style.height = headerHeight + 'px';
+          menuButton.innerHTML = heartEl.outerHTML;
+          menuButton.addEventListener('click', function() {
+            favouriteNodes.updateHeartedNodesList();
+            find('.menu').classList.toggle('active');
+          });
+          find('header .wrapper').appendChild(menuButton);
 
-        // Menu button
-        var menuButton = create('div');
-        menuButton.classList.add('menu-button');
-        menuButton.style.height = headerHeight + 'px';
-        menuButton.addEventListener('click', function() {
+          // Menu
+          var menu = create('div');
+          menu.classList.add('menu');
+          menu.style.top = (headerHeight + headerBoxShadow) + 'px';
+          menu.style.height = 'calc(100% - ' + (headerHeight + headerBoxShadow) + 'px)';
+          document.body.appendChild(menu);
           favouriteNodes.updateHeartedNodesList();
-          find('.menu').classList.toggle('active');
         });
-        find('header .wrapper').appendChild(menuButton);
-
-        // Menu
-        var menu = create('div');
-        menu.classList.add('menu');
-        menu.style.top = (headerHeight + headerBoxShadow) + 'px';
-        menu.style.height = 'calc(100% - ' + (headerHeight + headerBoxShadow) + 'px)';
-        document.body.appendChild(menu);
-        favouriteNodes.updateHeartedNodesList();
       });
 
       // If current node is hearted
