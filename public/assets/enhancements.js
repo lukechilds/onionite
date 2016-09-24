@@ -223,9 +223,13 @@
     }
   };
 
-  // Register service worker
+  // Service worker
   if(supports.test(['serviceWorker', 'querySelector', 'classList'])) {
+
+    // Register service worker
     navigator.serviceWorker.register('/sw.js');
+
+    // Show cache message on stale pages
     DOMReady(function() {
       if(window.cacheDate) {
         var offlineMessage = create('div');
