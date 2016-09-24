@@ -54,7 +54,7 @@ self.addEventListener('fetch', function(event) {
 
         // Cache the response for certain pages
         .then(function(response) {
-          if(requestUrl.pathname === '/') {
+          if(requestUrl.pathname === '/' || requestUrl.pathname.startsWith('/node/')) {
             caches.open(cacheName).then(function(cache) {
 
               // Modify the response html so we know when it was cached
