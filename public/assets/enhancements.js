@@ -234,7 +234,7 @@
       if(window.cacheDate) {
         var offlineMessage = create('div');
         offlineMessage.classList.add('cache-message');
-        offlineMessage.innerText = '*There seems to be an issue connecting to the server. This is a cached version of this page from ' + window.cacheDate;
+        offlineMessage.innerText = '*There seems to be an issue connecting to the server. This data is cached from ' + window.cacheDate;
         var main = find('main');
         if(main) {
           doc.body.classList.add('no-connection');
