@@ -34,12 +34,9 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
       caches.match(event.request)
         .then(function(response) {
-          if (response) {
-            return response;
-          }
 
           // If we don't have it make the request
-          return fetch(event.request);
+          return response || fetch(event.request);
         }
       )
     );
@@ -77,12 +74,9 @@ self.addEventListener('fetch', function(event) {
           // Try and return a previously cached version
           return caches.match(event.request)
             .then(function(response) {
-              if (response) {
-                return response;
-              }
 
               // If we don't have a cached version show pretty offline page
-              return caches.match(offlineUrl);
+              return response || caches.match(offlineUrl);
             });
         })
     );
