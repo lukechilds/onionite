@@ -61,3 +61,7 @@ All information is provided by the [Onionoo](https://onionoo.torproject.org/) AP
 Tor Explorer is heavily inspired by [Atlas](https://gitweb.torproject.org/atlas.git) and [Globe](https://github.com/makepanic/globe).
 
 "Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.
+
+## License
+
+MIT © Luke Childs
