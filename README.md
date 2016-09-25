@@ -22,6 +22,6 @@ Tor Explorer works in all modern browsers and I've taken care to not completely 
 
 <img width="400" src="https://i.imgur.com/OdoYz1V.png" />
 
-Making sure to use well structured semantic markup throughout the application also meant that it works well with text based browsers such as lynx.
+Making sure to use well structured semantic markup throughout the application also means that it works well with text based browsers such as lynx.
 
 <img width="820" src="http://i.imgur.com/Q1OSXfc.png" />
