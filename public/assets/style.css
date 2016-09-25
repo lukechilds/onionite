@@ -554,6 +554,13 @@ footer {
   }
 }
 
+/* Fix menu button overlapping title on iPhone 5 */
+@media (max-width: 360px) {
+  .menu-button {
+    right: 0;
+  }
+}
+
 /* Icons */
 @font-face {
   font-family: 'iconfont';
