@@ -297,6 +297,7 @@ pre {
 }
 
 code {
+  white-space: nowrap;
   padding: 0 0.2em;
   background: rgba(255, 255, 255, 0.2);
 }
