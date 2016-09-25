@@ -507,7 +507,7 @@ footer {
   .menu-button {
     position: fixed;
     top: 0;
-    right: 0;
+    right: 1rem;
     z-index: 1;
     border-left: 1px solid #eee;
   }
