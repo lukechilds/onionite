@@ -25,3 +25,13 @@ Tor Explorer works in all modern browsers and I've taken care to not completely 
 Making sure to use well structured semantic markup throughout the application also means that it works well with text based browsers such as lynx.
 
 <img width="820" src="http://i.imgur.com/Q1OSXfc.png" />
+
+## Accessibility
+
+I've tested the site with a11y and done real world testing with screen readers. I've added ARIA landmarks to make navigation easier and made sure to hide certain elements (like the ascii graphs) from the screen reader that can't reasonably be understood by them. Testing using a11y is still returning some warnings but from my own personal tests I think these can be safely ignored.
+
+Making sure everything worked without JavaScript was also really important. The target audience for this application are people who are running Tor relays or are interested in the Tor network. These people are more likely to be more concerned with privacy than the average user and are therefore much more likely to have JavaScript disabled.
+
+One thing I really wanted to be able to show without JavaScript was bandwidth graphs. Atlas uses the D3 JavaScript library to generate graphs which is about 124k on it's own. It seemed a bit excessive to add a 124k dependency to a 7k page for one feature so I tried to figure out a way to render the graphs server side. In the end I settled on rendering the graphs in ascii art. This meant the graphs were basically just text which is highly compressible by gzip and works well on text based browsers.
+
+<img width="863" src="http://i.imgur.com/4DGEUbi.png" />
