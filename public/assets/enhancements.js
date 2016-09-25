@@ -142,10 +142,20 @@
       var xhr = new XMLHttpRequest();
       xhr.open('GET', favouriteNodes.heartPath);
       xhr.addEventListener('load', function() {
+        cb(xhr.responseText);
+      });
+      xhr.send();
+    },
+
+    // Initiate node favouriting
+    init: function() {
+
+      // Start loading heart SVG before DOM
+      favouriteNodes.loadSVG(function(svg) {
 
         // Create heart SVG elem
         var div = create('div');
-        div.innerHTML = xhr.responseText;
+        div.innerHTML = svg;
         var heartEl = div.firstChild;
 
         // Show heart as active if we've already hearted this node
@@ -168,18 +178,6 @@
           }
         });
 
-        // Run callback
-        cb(heartEl);
-      });
-      xhr.send();
-    },
-
-    // Initiate node favouriting
-    init: function() {
-
-      // Start loading heart SVG before DOM
-      favouriteNodes.loadSVG(function(heartEl) {
-
         // Then inject into DOM when it's ready
         DOMReady(function() {
           var headerHeight = find('.title').offsetHeight;
@@ -195,7 +193,7 @@
           var menuButton = create('div');
           menuButton.classList.add('menu-button');
           menuButton.style.height = headerHeight + 'px';
-          menuButton.innerHTML = heartEl.outerHTML;
+          menuButton.innerHTML = svg;
           menuButton.addEventListener('click', function() {
             favouriteNodes.updateHeartedNodesList();
             find('.menu').classList.toggle('active');
