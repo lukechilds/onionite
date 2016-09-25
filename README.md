@@ -35,3 +35,15 @@ Making sure all information was accessible without JavaScript was also really im
 One thing I really wanted to be able to show without JavaScript was bandwidth graphs. Atlas uses the D3 JavaScript library to generate graphs which is about 124k on it's own. It seemed a bit excessive to add a 124k dependency to a 7k page for one feature so I tried to figure out a way to render the graphs server side. In the end I settled on rendering the graphs in ascii art. This meant the graphs were basically just text which is highly compressible by gzip and works well on text based browsers.
 
 <img width="863" src="http://i.imgur.com/4DGEUbi.png" />
+
+## Progressive Enhancement
+
+With JavaScript enabled some feature detection code is ran and if the browser is capable, the ability to favourite nodes is enabled. This is something I find really useful as I regularly check the status of my node on Atlas and have to search for it every time.
+
+Browsers/operating systems that support web app manifests will allow the web app to be installed as to the home screen and act like a native application. Support for this isn't great yet but should improve over time. It currently works very well with Chrome on Android.
+
+If the browser supports service workers a service worker will silently cache all static assets in the background. It will also keep a copy of the latest data each time you visit the top 10 nodes or an individual node page. If you lose your internet connection in the future the service worker will pull relevant data out of it's cache if it's available and show a nice error page if not.
+
+These three enhancements really compliment each other and allow for a very native app like experience that even works offline for modern devices.
+
+<img width="2160" src="http://i.imgur.com/Ltkf40H.jpg" />
