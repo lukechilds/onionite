@@ -55,3 +55,9 @@ The fact that all assets beyond HTML and CSS are loaded asynchronously means tha
 In the enhancement JavaScript, as much work as possible is outside of the DOM ready event handler. This means even if the DOM isn't ready yet, we get as much work as possible out of the way so that when the DOM is ready we can inject the enhancement elements as soon as possible. This helps to reduce jitter as the elements are added after load making the website appear less laggy.
 
 All information is provided by the [Onionoo](https://onionoo.torproject.org/) API. I've written a simple node API client as a separate reusable module ([onionoo-node-client](https://github.com/lukechilds/onionoo-node-client)). It caches the API responses in memory (respecting Onionoo's `Cache-Control` headers) meaning that once the cache has warmed up the server responds very quickly. It also takes a bit of load off the Oninoo API server. Atlas makes all API requests clientside, meaning a large number of users will result in heavy traffic to Onionoo.
+
+## Credit
+
+Tor Explorer is heavily inspired by [Atlas](https://gitweb.torproject.org/atlas.git) and [Globe](https://github.com/makepanic/globe).
+
+"Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.
