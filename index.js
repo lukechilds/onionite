@@ -26,6 +26,7 @@ app.get('/about', controllers.about);
 app.get('/no-connection', controllers.noConnection);
 
 // Serve assets with cache headers
+app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, { maxAge: '1 hour' }));
 app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
 
 // Start app
