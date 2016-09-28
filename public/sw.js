@@ -44,7 +44,10 @@ self.addEventListener('fetch', function(event) {
   }
 
   // If we navigate to a page
-  if(event.request.mode === 'navigate') {
+  if (
+    event.request.mode === 'navigate' ||
+    (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))
+  ) {
     event.respondWith(
 
       // Make the request
