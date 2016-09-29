@@ -52,22 +52,26 @@ self.addEventListener('fetch', function(event) {
 
       // Make the request
       fetch(event.request)
-
-        // Cache the response for certain pages
         .then(function(response) {
-          if(requestUrl.pathname === '/' || requestUrl.pathname.startsWith('/node/')) {
-            caches.open(cacheName).then(function(cache) {
 
-              // Modify the response html so we know when it was cached
-              response.clone().text().then(function(html) {
-                html = html.replace('window.cacheDate=false;', 'window.cacheDate="'+Date()+'";');
-                var modifiedResponse = new Response(new Blob([html]), { headers: response.headers });
+          // If it's the homepage or a node page
+          if(requestUrl.pathname === '/' || requestUrl.pathname.startsWith('/node/')) {
+
+            // Clone the response and read the html
+            response.clone().text().then(function(html) {
+
+              // Modify the html so we know when it was cached
+              html = html.replace('window.cacheDate=false;', 'window.cacheDate="'+Date()+'";');
+              var modifiedResponse = new Response(new Blob([html]), { headers: response.headers });
+
+              // Cache the modified response
+              caches.open(cacheName).then(function(cache) {
                 cache.put(event.request, modifiedResponse);
               });
             });
           }
 
-          // Return the response as normal
+          // Always return the original response
           return response;
         })
 
