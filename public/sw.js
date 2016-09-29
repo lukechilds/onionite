@@ -12,7 +12,7 @@ self.addEventListener('install', function(event) {
           offlineUrl,
           '/about',
           '/assets/style.css',
-          '/assets/enhancements.js',
+          '/assets/enhancements.js?v2',
           '/assets/iconfont.woff',
           '/assets/heart.svg'
         ]);
