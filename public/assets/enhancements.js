@@ -130,7 +130,7 @@
         });
         menuHTML += '</ul>';
       } else {
-        menuHTML += '<div class="empty">Click the heart on a node page to save it here for easy access :)</div>';
+        menuHTML += '<div class="empty">Click the heart next to a node\'s title on it\'s own page to save it here for easy access :)</div>';
       }
       return menu.innerHTML = menuHTML;
     },
