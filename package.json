@@ -1,10 +1,10 @@
 {
   "name": "tor-explorer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Explore the Tor network without JS",
   "main": "index.js",
-  "engines" : {
-    "node" : ">=6.3"
+  "engines": {
+    "node": ">=6.3"
   },
   "dependencies": {
     "ascii-chart": "^1.3.1",
