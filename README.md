@@ -8,6 +8,8 @@ It runs node on the server side and requires only HTML on the client for full fu
 
 I've implemented some additional features I've always wanted from Atlas such as search pagination, the ability to save nodes to your favourites, increased performance, better accessibility/mobile support and offline functionality (PWA).
 
+[Demo](https://tor-explorer-10kapart2016.azurewebsites.net) | [Vote](https://a-k-apart.com/gallery/Tor-Explorer)
+
 ![Screenshot](http://i.imgur.com/mOb6mFm.jpg)
 
 ## Size
