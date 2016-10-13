@@ -10,6 +10,7 @@ self.addEventListener('install', function(event) {
       .then(function(cache) {
         return cache.addAll([
           offlineUrl,
+          '/',
           '/about',
           '/assets/style.css',
           '/assets/enhancements.js?v2',
