@@ -41,5 +41,6 @@
   "bugs": {
     "url": "https://github.com/lukechilds/tor-explorer/issues"
   },
-  "homepage": "https://github.com/lukechilds/tor-explorer#readme"
+  "homepage": "https://github.com/lukechilds/tor-explorer#readme",
+  "private": true
 }
