@@ -4,7 +4,7 @@
 
 An entry for the [10k Apart](https://a-k-apart.com/) contest. Tor Explorer allows you to view information on the individual nodes that make up the Tor network. It is essentially my own spin on the existing [Atlas](https://atlas.torproject.org/) web app by The Tor Project, Inc.
 
-It runs node on the server side and requires only HTML on the client for full functionality. It's a bit a bit prettier with CSS support and you'll get some additional enhancements if you have JavaScript enabled.
+It runs node on the server side and requires only HTML on the client for full functionality. It's a bit prettier with CSS support and you'll get some additional enhancements if you have JavaScript enabled.
 
 I've implemented some additional features I've always wanted from Atlas such as search pagination, the ability to save nodes to your favourites, increased performance, better accessibility/mobile support and offline functionality (PWA).
 
