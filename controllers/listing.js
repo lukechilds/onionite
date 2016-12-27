@@ -1,6 +1,6 @@
 const tor = require('../lib/tor');
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
 
   let title = 'Top nodes by consensus weight';
   const query = {
@@ -24,7 +24,10 @@ module.exports = (req, res) => {
       nodes: nodes,
       numOfNodes: query.limit
     }))
-    .catch(error => res.render('listing.html', {
-      error: error
-    }));
+    .catch(err => {
+      if(err.statusCode == 400 && req.query.s) {
+        err.statusMessage = 'Bad Search Query';
+      }
+      next(err);
+    });
 }

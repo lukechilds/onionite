@@ -29,5 +29,8 @@ app.get('/no-connection', controllers.noConnection);
 app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, { maxAge: '1 hour' }));
 app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
 
+// Errors
+app.use(controllers.error);
+
 // Start app
 app.listen(port, () => console.log(`Tor Explorer listening on port ${port}`));

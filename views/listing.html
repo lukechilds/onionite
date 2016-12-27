@@ -2,57 +2,53 @@
 
 {% block main %}
 
-  {% if error %}
-    <h2>{{ 'Bad Search Query' if error.statusCode == 400 and req.query.s else error.statusMessage }}</h2>
+  <h2>{{ title }}</h2>
+  {% if nodes.length %}
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nickname</th>
+          <th>Bandwidth</th>
+          <th>Uptime</th>
+          <th>Country</th>
+          <th>Flags</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for node in nodes %}
+        <tr>
+          <td>{{ req.query.p * 10 - 10 + loop.index if req.query.p else loop.index }}</td>
+          <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
+          <td>{{ node | bandwidth }}</td>
+          <td>{{ node | uptime }}</td>
+          <td>{{ node.country_name }}</td>
+          <td>
+            {% if node.flags.length %}
+              {% for flag in node.flags %}
+                <i class="icon-{{ flag | lower }}" title="{{ flag }}"><span class="hidden">{{ flag }}</span></i>
+              {% endfor %}
+            {% endif %}
+          </td>
+          <td>{{ node.type | title }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   {% else %}
-    <h2>{{ title }}</h2>
-    {% if nodes.length %}
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Nickname</th>
-            <th>Bandwidth</th>
-            <th>Uptime</th>
-            <th>Country</th>
-            <th>Flags</th>
-            <th>Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for node in nodes %}
-          <tr>
-            <td>{{ req.query.p * 10 - 10 + loop.index if req.query.p else loop.index }}</td>
-            <td><a href="/node/{{ node.fingerprint if node.fingerprint else node.hashed_fingerprint }}">{{ node.nickname }}</a></td>
-            <td>{{ node | bandwidth }}</td>
-            <td>{{ node | uptime }}</td>
-            <td>{{ node.country_name }}</td>
-            <td>
-              {% if node.flags.length %}
-                {% for flag in node.flags %}
-                  <i class="icon-{{ flag | lower }}" title="{{ flag }}"><span class="hidden">{{ flag }}</span></i>
-                {% endfor %}
-              {% endif %}
-            </td>
-            <td>{{ node.type | title }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <h3>No matches</h3>
-    {% endif %}
-    <div class="pagination clearfix">
-      {% if req.query.p > 1 %}
-        <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="visually-hidden">Prev</span></a>
-      {% endif %}
-      {% if req.query.p > 1 and nodes.length == numOfNodes %}
-        <span class="hidden">-</span>
-      {% endif %}
-      {% if nodes.length == numOfNodes %}
-        <a class="next" href="{{ req | pagination('next') }}"><span class="visually-hidden">Next</span> &rsaquo;</a>
-      {% endif %}
-    </div>
+    <h3>No matches</h3>
   {% endif %}
+  <div class="pagination clearfix">
+    {% if req.query.p > 1 %}
+      <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="visually-hidden">Prev</span></a>
+    {% endif %}
+    {% if req.query.p > 1 and nodes.length == numOfNodes %}
+      <span class="hidden">-</span>
+    {% endif %}
+    {% if nodes.length == numOfNodes %}
+      <a class="next" href="{{ req | pagination('next') }}"><span class="visually-hidden">Next</span> &rsaquo;</a>
+    {% endif %}
+  </div>
 
 {% endblock %}

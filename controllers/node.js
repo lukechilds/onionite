@@ -1,7 +1,7 @@
 const tor             = require('../lib/tor');
 const bandwidthChart  = require('../lib/bandwidth-chart');
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
   Promise.all([
     tor.node(req.params.id),
     tor.bandwidth(req.params.id)
@@ -11,7 +11,10 @@ module.exports = (req, res) => {
       node: data[0],
       bandwidth: bandwidthChart(data[1])
     }))
-    .catch(error => res.render('node.html', {
-      error: error
-    }));
+    .catch(err => {
+      if(err.statusCode == 400) {
+        err.statusMessage = 'Invalid node';
+      }
+      next(err);
+    });
 }
