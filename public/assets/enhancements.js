@@ -6,15 +6,15 @@
   var create = doc.createElement.bind(doc);
 
   // Run callback when DOM is ready
-  function DOMReady(fn) {
+  function DOMReady(cb) {
 
     // Run now if DOM has already loaded as we're loading async
     if(['interactive', 'complete'].indexOf(doc.readyState) >= 0) {
-      fn();
+      cb();
 
     // Otherwise wait for DOM
     } else {
-      doc.addEventListener('DOMContentLoaded', fn);
+      doc.addEventListener('DOMContentLoaded', cb);
     }
   }
 
