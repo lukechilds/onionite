@@ -42,19 +42,17 @@
     {% else %}
       <h3>No matches</h3>
     {% endif %}
-    {% if req.query.s %}
-      <div class="pagination clearfix">
-        {% if req.query.p > 1 %}
-          <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="visually-hidden">Prev</span></a>
-        {% endif %}
-        {% if req.query.p > 1 and nodes.length == numOfNodes %}
-          <span class="hidden">-</span>
-        {% endif %}
-        {% if nodes.length == numOfNodes %}
-          <a class="next" href="{{ req | pagination('next') }}"><span class="visually-hidden">Next</span> &rsaquo;</a>
-        {% endif %}
-      </div>
-    {% endif %}
+    <div class="pagination clearfix">
+      {% if req.query.p > 1 %}
+        <a class="prev" href="{{ req | pagination('prev') }}">&lsaquo; <span class="visually-hidden">Prev</span></a>
+      {% endif %}
+      {% if req.query.p > 1 and nodes.length == numOfNodes %}
+        <span class="hidden">-</span>
+      {% endif %}
+      {% if nodes.length == numOfNodes %}
+        <a class="next" href="{{ req | pagination('next') }}"><span class="visually-hidden">Next</span> &rsaquo;</a>
+      {% endif %}
+    </div>
   {% endif %}
 
 {% endblock %}
