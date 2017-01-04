@@ -7,14 +7,15 @@ const orderByValues = [
 
 module.exports = (req, res, next) => {
 
-  let title = 'Top nodes by consensus weight';
+  let title = '';
   const query = {
     limit: 10
   };
   if(req.query.s) {
     title = `Search results for "${req.query.s}":`;
     query.search = req.query.s;
-  } else {
+  } else if(Object.keys(req.query).length == 0) {
+    title = 'Top nodes by consensus weight';
     query.order = '-consensus_weight';
     query.running = true;
   }
@@ -22,6 +23,7 @@ module.exports = (req, res, next) => {
     query.offset = (query.limit * req.query.p) - query.limit;
   }
   if(req.query.orderBy && orderByValues.includes(req.query.orderBy)) {
+    title = `Nodes ordered by ${req.query.orderBy} (${req.query.order}):`;
     query.order = (req.query.order == 'desc') ? `-${req.query.orderBy}` : req.query.orderBy;
   }
 
