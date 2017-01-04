@@ -6,9 +6,9 @@
   <form action="/">
     <input type="hidden" name="s" value="{{ req.query.s }}" />
     <input type="hidden" name="p" value="{{ req.query.p }}" />
-    <select name="order">
-      {% for order in orderValues %}
-      <option value="{{ order }}">{{ order }}</option>
+    <select name="orderBy">
+      {% for orderBy in orderByValues %}
+      <option value="{{ orderBy }}">{{ orderBy }}</option>
       {% endfor %}
     </select>
     <input type="submit" />

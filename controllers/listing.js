@@ -1,6 +1,6 @@
 const tor = require('../lib/tor');
 
-const orderValues = [
+const orderByValues = [
   'consensus_weight',
   'first_seen'
 ];
@@ -21,8 +21,8 @@ module.exports = (req, res, next) => {
   if(req.query.p) {
     query.offset = (query.limit * req.query.p) - query.limit;
   }
-  if(req.query.order && orderValues.includes(req.query.order)) {
-    query.order = req.query.order;
+  if(req.query.orderBy && orderByValues.includes(req.query.orderBy)) {
+    query.order = req.query.orderBy;
   }
 
   tor.listNodes(query)
@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
       title: title,
       nodes: nodes,
       numOfNodes: query.limit,
-      orderValues: orderValues
+      orderByValues: orderByValues
     }))
     .catch(err => {
       if(err.statusCode == 400 && req.query.s) {
