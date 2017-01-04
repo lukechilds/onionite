@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
     query.offset = (query.limit * req.query.p) - query.limit;
   }
   if(req.query.orderBy && orderByValues.includes(req.query.orderBy)) {
-    query.order = req.query.orderBy;
+    query.order = (req.query.order == 'desc') ? `-${req.query.orderBy}` : req.query.orderBy;
   }
 
   tor.listNodes(query)

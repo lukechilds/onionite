@@ -11,6 +11,10 @@
       <option value="{{ orderBy }}">{{ orderBy }}</option>
       {% endfor %}
     </select>
+    <select name="order">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
     <input type="submit" />
   {% if nodes.length %}
     <table>
