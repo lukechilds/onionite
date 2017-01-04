@@ -8,7 +8,7 @@
     <input type="hidden" name="p" value="{{ req.query.p }}" />
     <select name="orderBy">
       {% for orderBy in orderByValues %}
-      <option value="{{ orderBy }}">{{ orderBy }}</option>
+      <option value="{{ orderBy.value }}">{{ orderBy.name }}</option>
       {% endfor %}
     </select>
     <select name="order">

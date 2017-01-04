@@ -1,8 +1,14 @@
 const tor = require('../lib/tor');
 
 const orderByValues = [
-  'consensus_weight',
-  'first_seen'
+  {
+    name: 'Consensus Weight',
+    value: 'consensus_weight'
+  },
+  {
+    name: 'First Seen',
+    value: 'first_seen'
+  }
 ];
 
 module.exports = (req, res, next) => {
@@ -22,8 +28,8 @@ module.exports = (req, res, next) => {
   if(req.query.p) {
     query.offset = (query.limit * req.query.p) - query.limit;
   }
-  if(req.query.orderBy && orderByValues.includes(req.query.orderBy)) {
-    title = `Nodes ordered by ${req.query.orderBy} (${req.query.order}):`;
+  if(req.query.orderBy && orderByValues.map(orderBy => orderBy.value).includes(req.query.orderBy)) {
+    title = `Nodes ordered by "${orderByValues.find(orderBy => orderBy.value == req.query.orderBy).name}" (${req.query.order}):`;
     query.order = (req.query.order == 'desc') ? `-${req.query.orderBy}` : req.query.orderBy;
   }
 
