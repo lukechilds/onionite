@@ -11,12 +11,12 @@
     {% endfor %}
     <select name="orderBy">
       {% for orderBy in orderByValues %}
-      <option value="{{ orderBy.value }}">{{ orderBy.name }}</option>
+      <option value="{{ orderBy.value }}" {{ 'selected' if req.query.orderBy == orderBy.value }}>{{ orderBy.name }}</option>
       {% endfor %}
     </select>
     <select name="order">
-      <option value="asc">Ascending</option>
-      <option value="desc">Descending</option>
+      <option value="asc" {{ 'selected' if req.query.order == 'asc' }}>Ascending</option>
+      <option value="desc" {{ 'selected' if req.query.order == 'desc' }}>Descending</option>
     </select>
     <input type="submit" />
   {% if nodes.length %}
