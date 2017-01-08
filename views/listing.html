@@ -4,7 +4,7 @@
 
   <h2>{{ title }}</h2>
   <form action="/">
-    {% for hiddenValue in ['s', 'p'] %}
+    {% for hiddenValue in ['s'] %}
       {% if req.query[hiddenValue] %}
         <input type="hidden" name="{{ hiddenValue }}" value="{{ req.query[hiddenValue] }}" />
       {% endif %}
