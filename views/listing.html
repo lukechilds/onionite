@@ -4,8 +4,9 @@
 
   <h2>{{ title }}</h2>
   <form action="/">
-    <input type="hidden" name="s" value="{{ req.query.s }}" />
-    <input type="hidden" name="p" value="{{ req.query.p }}" />
+    {% for hiddenValue in ['s', 'p'] %}
+      <input type="hidden" name="{{ hiddenValue }}" value="{{ req.query[hiddenValue] }}" />
+    {% endfor %}
     <select name="orderBy">
       {% for orderBy in orderByValues %}
       <option value="{{ orderBy.value }}">{{ orderBy.name }}</option>
