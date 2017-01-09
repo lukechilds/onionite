@@ -1,8 +1,8 @@
-# Tor Explorer
+# Onionite
 
 > Explore the Tor network in under 10k
 
-An entry for the [10k Apart](https://a-k-apart.com/) contest. Tor Explorer allows you to view information on the individual nodes that make up the Tor network. It is essentially my own spin on the existing [Atlas](https://atlas.torproject.org/) web app by The Tor Project, Inc.
+An entry for the [10k Apart](https://a-k-apart.com/) contest. Onionite allows you to view information on the individual nodes that make up the Tor network. It is essentially my own spin on the existing [Atlas](https://atlas.torproject.org/) web app by The Tor Project, Inc.
 
 It runs node on the server side and requires only HTML on the client for full functionality. It's a bit prettier with CSS support and you'll get some additional enhancements if you have JavaScript enabled.
 
@@ -14,7 +14,7 @@ I've implemented some additional features I've always wanted from Atlas such as 
 
 ## Size
 
-An average Tor Explorer page weighs in at just over 7k. If the browser has JavaScript enabled additional requests will be made for ~1.5k of JavaScript enhancements and a ~500 byte SVG. These are requested asynchronously and so do not block the page load. They are purely for progressive enhancements and the site is fully usable without JavaScript.
+An average Onionite page weighs in at just over 7k. If the browser has JavaScript enabled additional requests will be made for ~1.5k of JavaScript enhancements and a ~500 byte SVG. These are requested asynchronously and so do not block the page load. They are purely for progressive enhancements and the site is fully usable without JavaScript.
 
 Including the asynchronously loaded enhancements the page is still under 10k (~9.5k). The equivalent Atlas pages tend to be around 480k.
 
@@ -24,7 +24,7 @@ Emerging standards have been favoured over proprietary APIs to try and reduce un
 
 ## Browser Support
 
-Tor Explorer works in all modern browsers and I've taken care to not completely break the experience in older browsers that don't support the modern features used. I've also used media queries to give a good experience on devices of all different screen sizes.
+Onionite works in all modern browsers and I've taken care to not completely break the experience in older browsers that don't support the modern features used. I've also used media queries to give a good experience on devices of all different screen sizes.
 
 <img width="400" src="https://i.imgur.com/OdoYz1V.png" />
 
@@ -64,7 +64,7 @@ All information is provided by the [Onionoo](https://onionoo.torproject.org/) AP
 
 ## Credit
 
-Tor Explorer is heavily inspired by [Atlas](https://gitweb.torproject.org/atlas.git) and [Globe](https://github.com/makepanic/globe).
+Onionite is heavily inspired by [Atlas](https://gitweb.torproject.org/atlas.git) and [Globe](https://github.com/makepanic/globe).
 
 "Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.
 

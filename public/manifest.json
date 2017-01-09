@@ -1,6 +1,6 @@
 {
-  "name": "Tor Explorer",
-  "short_name": "Tor Explorer",
+  "name": "Onionite",
+  "short_name": "Onionite",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#895CA1",

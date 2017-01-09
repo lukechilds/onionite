@@ -33,4 +33,4 @@ app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
 app.use(controllers.error);
 
 // Start app
-app.listen(port, () => console.log(`Tor Explorer listening on port ${port}`));
+app.listen(port, () => console.log(`Onionite listening on port ${port}`));
