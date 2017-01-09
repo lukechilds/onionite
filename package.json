@@ -16,13 +16,15 @@
     "moment": "^2.14.1",
     "nunjucks": "^2.5.0",
     "onionoo": "^1.0.0",
+    "pm2": "^2.2.3",
     "pretty-bytes": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^1.10.2"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "pm2 start index.js --no-daemon",
+    "stop": "pm2 stop index.js",
     "dev": "nodemon -e js,json,html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
