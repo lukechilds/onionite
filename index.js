@@ -1,3 +1,7 @@
+require('pmx').init({
+  http : true
+});
+
 const nunjucks            = require('nunjucks');
 const express             = require('express');
 const nunjucksFilters     = require('./lib/nunjucks-filters');
