@@ -1,3 +1,4 @@
+const honeybadger         = require('honeybadger');
 const nunjucks            = require('nunjucks');
 const express             = require('express');
 const nunjucksFilters     = require('./lib/nunjucks-filters');
@@ -7,6 +8,10 @@ const minify              = require('./lib/minify');
 const controllers         = require('./controllers');
 const app                 = express();
 const port                = process.env.port || 3000;
+
+// Honey badger request logging
+// Must be before all other middleware
+app.use(honeybadger.requestHandler);
 
 // Setup nunjucks
 nunjucks.configure('views', { express: app });
@@ -28,6 +33,10 @@ app.get('/no-connection', controllers.noConnection);
 // Serve assets with cache headers
 app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, { maxAge: '1 hour' }));
 app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
+
+// Honey badger error handler
+// Must be after all other middleware (apart from our error handler)
+app.use(honeybadger.errorHandler);
 
 // Errors
 app.use(controllers.error);

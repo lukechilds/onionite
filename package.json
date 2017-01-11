@@ -13,6 +13,7 @@
     "express": "^4.14.0",
     "express-minify": "^0.2.0",
     "express-minify-html": "^0.6.0",
+    "honeybadger": "^1.2.0",
     "moment": "^2.14.1",
     "nunjucks": "^2.5.0",
     "onionoo": "^1.0.0",
