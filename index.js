@@ -1,4 +1,4 @@
-require('@risingstack/trace');
+const trace = require('@risingstack/trace');
 
 const nunjucks            = require('nunjucks');
 const express             = require('express');
@@ -9,6 +9,12 @@ const minify              = require('./lib/minify');
 const controllers         = require('./controllers');
 const app                 = express();
 const port                = process.env.port || 3000;
+
+// Report headers to trace
+app.use((req, res, next) => {
+  trace.report('headers', req.headers);
+  next();
+});
 
 // Setup nunjucks
 nunjucks.configure('views', { express: app });
