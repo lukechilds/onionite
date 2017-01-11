@@ -1,4 +1,4 @@
-var cacheName   = 'top-explorer-cache-v1';
+var cacheName   = 'onionite-cache-v1';
 var offlineUrl  = '/no-connection';
 
 // Install
