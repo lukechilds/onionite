@@ -13,6 +13,7 @@ const port                = process.env.port || 3000;
 // Report headers to trace
 app.use((req, res, next) => {
   trace.report('headers', req.headers);
+  trace.incrementMetric('request');
   next();
 });
 
