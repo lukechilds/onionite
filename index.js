@@ -1,5 +1,7 @@
+const KeenTracking        = require('keen-tracking');
 const nunjucks            = require('nunjucks');
 const express             = require('express');
+const keenMiddleware      = require('./lib/keen-middleware');
 const nunjucksFilters     = require('./lib/nunjucks-filters');
 const nunjucksMiddleware  = require('./lib/nunjucks-middleware');
 const compression         = require('compression');
@@ -7,6 +9,9 @@ const minify              = require('./lib/minify');
 const controllers         = require('./controllers');
 const app                 = express();
 const port                = process.env.port || 3000;
+
+// Analytics
+app.use(keenMiddleware);
 
 // Setup nunjucks
 nunjucks.configure('views', { express: app });
