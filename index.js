@@ -1,5 +1,5 @@
 const express             = require('express');
-const keenMiddleware      = require('./lib/keen-middleware');
+const anonlytics          = require('anonlytics-express');
 const nunjucks            = require('nunjucks');
 const nunjucksFilters     = require('./lib/nunjucks-filters');
 const nunjucksMiddleware  = require('./lib/nunjucks-middleware');
@@ -15,7 +15,7 @@ if(process.env.NOW) {
 }
 
 // Analytics
-app.use(keenMiddleware);
+app.use(anonlytics);
 
 // Setup nunjucks
 nunjucks.configure('views', { express: app });
