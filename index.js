@@ -10,6 +10,11 @@ const controllers         = require('./controllers');
 const app                 = express();
 const port                = process.env.port || 3000;
 
+// Trust proxy headers if we're deployed on now
+if(process.env.NOW) {
+  app.enable('trust proxy');
+}
+
 // Analytics
 app.use(keenMiddleware);
 
