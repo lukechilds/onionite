@@ -15,7 +15,7 @@ if(process.env.NOW) {
 }
 
 // Analytics
-app.use(anonlytics);
+app.use(anonlytics());
 
 // Setup nunjucks
 nunjucks.configure('views', { express: app });
