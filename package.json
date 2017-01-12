@@ -17,7 +17,8 @@
     "moment": "^2.14.1",
     "nunjucks": "^2.5.0",
     "onionoo": "^1.0.0",
-    "pretty-bytes": "^4.0.2"
+    "pretty-bytes": "^4.0.2",
+    "response-time": "^2.3.2"
   },
   "devDependencies": {
     "nodemon": "^1.10.2"
