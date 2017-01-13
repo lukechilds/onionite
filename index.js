@@ -39,6 +39,7 @@ app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, { maxAge: '1 hour'
 app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
 
 // Errors
+app.use(controllers.error404);
 app.use(controllers.error);
 
 // Start app

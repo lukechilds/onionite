@@ -3,5 +3,6 @@ module.exports = {
   node:         require('./node'),
   about:        require('./about'),
   noConnection: require('./no-connection'),
-  error:        require('./error')
+  error:        require('./error'),
+  error404:     require('./error404')
 };
