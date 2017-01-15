@@ -2,6 +2,8 @@
 
 > Explore the Tor network in under 10k
 
+[![Build Status](https://travis-ci.org/lukechilds/onionite.svg?branch=master)](https://travis-ci.org/lukechilds/onionite)
+
 An entry for the [10k Apart](https://a-k-apart.com/) contest. Onionite allows you to view information on the individual nodes that make up the Tor network. It is essentially my own spin on the existing [Atlas](https://atlas.torproject.org/) web app by The Tor Project, Inc.
 
 It runs node on the server side and requires only HTML on the client for full functionality. It's a bit prettier with CSS support and you'll get some additional enhancements if you have JavaScript enabled.
