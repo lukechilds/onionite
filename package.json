@@ -20,11 +20,13 @@
     "pretty-bytes": "^4.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.10.2"
+    "nodemon": "^1.10.2",
+    "xo": "^0.17.1"
   },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon -e js,json,html",
+    "lint": "xo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
