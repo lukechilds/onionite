@@ -1,7 +1,7 @@
 {
   "name": "onionite",
   "version": "0.2.0",
-  "description": "Explore the Tor network without JS",
+  "description": "Explore the Tor network",
   "main": "index.js",
   "engines": {
     "node": ">=6.3"
