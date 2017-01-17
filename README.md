@@ -16,6 +16,10 @@ All information is provided by the [Onionoo](https://onionoo.torproject.org) API
 
 "Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.
 
+## Related
+
+- [`onionoo-node-client`](https://github.com/lukechilds/onionoo-node-client) - Node.js client library for the Tor Onionoo API
+
 ## License
 
 MIT © Luke Childs
