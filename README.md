@@ -1,6 +1,6 @@
 # Onionite
 
-> Explore the Tor network
+> Explore the Tor network - [onionite.now.sh](https://onionite.now.sh)
 
 [![Build Status](https://travis-ci.org/lukechilds/onionite.svg?branch=master)](https://travis-ci.org/lukechilds/onionite)
 
