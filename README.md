@@ -9,10 +9,10 @@ PWA to view information on the individual nodes that make up the Tor network.
 ![Screenshot](https://i.imgur.com/VYaVKhm.png)
 
 - Notable mention in the Microsoft 10K Apart competition.
-- Progressively enhances all the way from Lynx to Chrome.
+- Progressively enhances from Lynx all the way to Chrome.
 - Offline functionality.
 - Highly accessible.
-- No (frontend) frameworks, just vanilla CSS and JavaScript.
+- No (frontend) frameworks, no build system just vanilla CSS and JavaScript.
 - Page size + all assets < 10k.
 - JavaScript not required!
 
