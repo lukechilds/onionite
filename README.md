@@ -8,6 +8,14 @@ PWA to view information on the individual nodes that make up the Tor network.
 
 ![Screenshot](https://i.imgur.com/VYaVKhm.png)
 
+- Notable mention in the Microsoft 10K Apart competition.
+- Progressively enhances all the way from Lynx to Chrome.
+- Offline functionality.
+- Highly accessible.
+- No (frontend) frameworks, just vanilla CSS and JavaScript.
+- Page size + all assets < 10k.
+- JavaScript not required!
+
 ## Credit
 
 Onionite is heavily inspired by [Atlas](https://gitweb.torproject.org/atlas.git) and [Globe](https://github.com/makepanic/globe).
