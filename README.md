@@ -1,6 +1,6 @@
 # Onionite
 
-> Explore the Tor network in under 10k
+> Explore the Tor network
 
 [![Build Status](https://travis-ci.org/lukechilds/onionite.svg?branch=master)](https://travis-ci.org/lukechilds/onionite)
 
