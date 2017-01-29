@@ -147,6 +147,12 @@
             <dt>Consensus Weight</dt>
             <dd>{{ node.consensus_weight }}</dd>
           {% endif %}
+          {% if node.effective_family %}
+            <dt>Family</dt>
+            {% for familyMember in node.effective_family %}
+              <dd><a href="/node/{{ familyMember | replace('$', '') }}">{{ familyMember }}</a></dd>
+            {% endfor %}
+          {% endif %}
         </dl>
       </section>
     {% endif %}
