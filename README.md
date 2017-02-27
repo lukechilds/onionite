@@ -1,7 +1,5 @@
 # Onionite
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/lukechilds/onionite.svg)](https://greenkeeper.io/)
-
 > Explore the Tor network - [onionite.now.sh](https://onionite.now.sh)
 
 [![Build Status](https://travis-ci.org/lukechilds/onionite.svg?branch=master)](https://travis-ci.org/lukechilds/onionite)
