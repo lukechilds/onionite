@@ -6,7 +6,7 @@
 
 PWA to view information on the individual nodes that make up the Tor network.
 
-![Screenshot](https://i.imgur.com/VYaVKhm.png)
+[![Screenshot](https://i.imgur.com/VYaVKhm.png)](https://onionite.now.sh)
 
 - Notable mention in the Microsoft 10K Apart competition.
 - Progressively enhances from Lynx all the way to Chrome.
