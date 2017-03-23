@@ -16,7 +16,7 @@
     "express-minify-html": "0.10.0",
     "moment": "2.18.1",
     "nunjucks": "3.0.0",
-    "onionoo": "1.0.15",
+    "onionoo": "1.0.16",
     "pretty-bytes": "4.0.2"
   },
   "devDependencies": {
