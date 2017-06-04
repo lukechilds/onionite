@@ -13,7 +13,7 @@
     "compression": "1.6.2",
     "express": "4.14.1",
     "express-minify": "0.2.0",
-    "express-minify-html": "0.11.3",
+    "express-minify-html": "0.11.4",
     "moment": "2.18.1",
     "nunjucks": "3.0.1",
     "onionoo": "1.0.19",
