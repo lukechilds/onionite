@@ -20,7 +20,7 @@
     "pretty-bytes": "4.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.10.2",
+    "nodemon": "^1.12.1",
     "xo": "^0.17.1"
   },
   "scripts": {
