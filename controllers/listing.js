@@ -9,7 +9,13 @@ module.exports = (req, res, next) => {
 		title = `Search results for "${req.query.s}":`;
 		query.search = req.query.s;
 	} else {
-		query.order = '-consensus_weight';
+		if (req.query.o) {
+			title = 'Top nodes by date first seen';
+			query.order = '-first_seen';
+		}
+		else {
+			query.order = '-consensus_weight';			
+		}
 		query.running = true;
 	}
 	if (req.query.p) {
