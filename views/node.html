@@ -44,6 +44,10 @@
             <dd class="flag"><i class="icon-{{ flag | lower }}"></i> {{ flag }}</dd>
           {% endfor %}
         {% endif %}
+        {% if node.first_seen %}
+          <dt>First Seen</dt>
+          <dd>{{ node.first_seen }}</dd>
+        {% endif %}
       </dl>
     </section>
   {% endif %}
