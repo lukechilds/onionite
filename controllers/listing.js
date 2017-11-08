@@ -12,9 +12,8 @@ module.exports = (req, res, next) => {
 		if (req.query.o) {
 			title = 'Top nodes by date first seen';
 			query.order = '-first_seen';
-		}
-		else {
-			query.order = '-consensus_weight';			
+		} else {
+			query.order = '-consensus_weight';
 		}
 		query.running = true;
 	}
