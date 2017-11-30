@@ -33,7 +33,13 @@
     "test": "xo"
   },
   "xo": {
-    "extends": "xo-lukechilds"
+    "extends": "xo-lukechilds",
+    "overrides": [
+      {
+        "files": "public/**",
+        "esnext": false
+      }
+    ]
   },
   "repository": {
     "type": "git",
