@@ -468,6 +468,22 @@ footer {
   }
 }
 
+/* This needs to happen slightly before the next breakpoint */
+@media (max-width: 570px) {
+
+  /* List footer links */
+  footer .wrapper > a {
+    display: block;
+    margin-bottom: 0.2em;
+  }
+  footer .divider {
+    display: none;
+  }
+  .me {
+    float: none;
+  }
+}
+
 /* Small Mobile */
 @media (max-width: 500px) {
 
@@ -540,18 +556,6 @@ footer {
   /* Reduce list title padding */
   td:not(:first-child):before {
     min-width: 6em;
-  }
-
-  /* List footer links */
-  footer .wrapper > a {
-    display: block;
-    margin-bottom: 0.2em;
-  }
-  footer .divider {
-    display: none;
-  }
-  .me {
-    float: none;
   }
 }
 
