@@ -1,6 +1,6 @@
 {
   "name": "onionite",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Explore the Tor network",
   "main": "index.js",
   "engines": {
