@@ -58,7 +58,7 @@ self.addEventListener('fetch', function (event) {
 						response.clone().text().then(function (html) {
 							// Modify the html so we know when it was cached
 							html = html.replace('window.cacheDate=false;', 'window.cacheDate="' + Date() + '";');
-							var modifiedResponse = new Response(new Blob([html]), {headers: response.headers});
+							var modifiedResponse = new Response(new Blob([html]), { headers: response.headers });
 
 							// Cache the modified response
 							caches.open(cacheName).then(function (cache) {

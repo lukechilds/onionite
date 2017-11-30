@@ -21,6 +21,7 @@
     "quick-lru": "^1.1.0"
   },
   "devDependencies": {
+    "eslint-config-xo-lukechilds": "^1.0.1",
     "nodemon": "^1.10.2",
     "xo": "^0.17.1"
   },
@@ -28,7 +29,12 @@
     "start": "node index.js",
     "dev": "nodemon -e js,json,html",
     "lint": "xo",
+    "deploy": "now --public",
+    "alias": "now alias",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "xo": {
+    "extends": "xo-lukechilds"
   },
   "repository": {
     "type": "git",

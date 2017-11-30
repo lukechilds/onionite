@@ -19,7 +19,7 @@ if (process.env.NOW) {
 app.use(anonlytics());
 
 // Setup nunjucks
-nunjucks.configure('views', {express: app});
+nunjucks.configure('views', { express: app });
 nunjucksFilters(app);
 app.use(nunjucksMiddleware);
 
@@ -36,8 +36,8 @@ app.get('/about', controllers.about);
 app.get('/no-connection', controllers.noConnection);
 
 // Serve assets with cache headers
-app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, {maxAge: '1 hour'}));
-app.use(express.static(`${__dirname}/public`, {maxAge: '1 year'}));
+app.use('/sw.js', express.static(`${__dirname}/public/sw.js`, { maxAge: '1 hour' }));
+app.use(express.static(`${__dirname}/public`, { maxAge: '1 year' }));
 
 // Errors
 app.use(controllers.error404);
