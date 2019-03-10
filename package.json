@@ -18,7 +18,7 @@
     "nunjucks": "3.1.2",
     "onionoo": "2.0.2",
     "pretty-bytes": "5.1.0",
-    "quick-lru": "^1.1.0"
+    "quick-lru": "^3.0.0"
   },
   "devDependencies": {
     "eslint-config-xo-lukechilds": "^1.0.1",
