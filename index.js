@@ -1,5 +1,5 @@
 const express = require('express');
-const anonlytics = require('anonlytics-express');
+const anonlytics = require('@aarondewes/anonlytics-express');
 const nunjucks = require('nunjucks');
 const compression = require('compression');
 const nunjucksFilters = require('./lib/nunjucks-filters');
