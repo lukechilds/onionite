@@ -1,6 +1,6 @@
 /* eslint-env browser */
 const cacheName = 'onionite-cache-v1';
-const offlineUrl = '/no-connection';
+const offlineUrl = '/no-connection.html';
 
 // Install
 self.addEventListener('install', event => {
@@ -11,11 +11,24 @@ self.addEventListener('install', event => {
 				return cache.addAll([
 					offlineUrl,
 					'/',
-					'/about',
+					'/index.html',
+					'/about.html',
 					'/assets/style.css',
-					'/assets/enhancements.js?v2',
+					'/assets/enhancements.js',
 					'/assets/iconfont.woff',
-					'/assets/heart.svg'
+					'/assets/heart.svg',
+					'/api/listing/p1',
+					'/api/listing/p2',
+					'/api/listing/p3',
+					'/api/listing/p4',
+					'/api/listing/p5',
+					'/api/listing/p6',
+					'/api/listing/p7',
+					'/api/listing/p8',
+					'/api/listing/p9',
+					'/api/listing/p10',
+					'/api/listing/p11',
+					'/api/version/version'
 				]);
 			})
 	);
@@ -45,7 +58,8 @@ self.addEventListener('fetch', event => {
 	// If we navigate to a page
 	if (
 		event.request.mode === 'navigate' ||
-		(event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))
+		(event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html')) ||
+		requestUrl.pathname.startsWith('/api/')
 	) {
 		event.respondWith(
 
@@ -74,9 +88,11 @@ self.addEventListener('fetch', event => {
 				// If it fails
 				.catch(() => {
 					// Try and return a previously cached version
+					console.log('Trying cache...');
 					return caches.match(event.request)
 						.then(response => {
 							// If we don't have a cached version show pretty offline page
+							console.log('Not in cache...');
 							return response || caches.match(offlineUrl);
 						});
 				})

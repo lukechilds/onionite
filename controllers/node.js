@@ -1,10 +1,10 @@
 const tor = require('../lib/tor');
 const bandwidthChart = require('../lib/bandwidth-chart');
 
-module.exports = (req, res, next) => {
+module.exports = (request, response, next) => {
 	Promise.all([
-		tor.node(req.params.id),
-		tor.bandwidth(req.params.id)
+		tor.node(request.params.id),
+		tor.bandwidth(request.params.id)
 	])
 		.then(data => {
 			// Throw 404 if node doesn't exist
@@ -15,16 +15,17 @@ module.exports = (req, res, next) => {
 				throw err;
 			}
 
-			res.render('node.html', {
+			response.render('node.html', {
 				pageTitle: `${data[0].type}: ${data[0].nickname}`,
 				node: data[0],
 				bandwidth: bandwidthChart(data[1])
 			});
 		})
-		.catch(err => {
-			if (err.statusCode === 400) {
-				err.statusMessage = 'Invalid node';
+		.catch(error => {
+			if (error.statusCode === 400) {
+				error.statusMessage = 'Invalid node';
 			}
-			next(err);
+
+			next(error);
 		});
 };

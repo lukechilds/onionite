@@ -4,7 +4,7 @@
   "description": "Explore the Tor network",
   "main": "index.js",
   "engines": {
-    "node": ">=6.3"
+    "node": ">=10"
   },
   "dependencies": {
     "@aarondewes/anonlytics-express": "0.2.1",
@@ -37,9 +37,12 @@
     "overrides": [
       {
         "files": "public/**",
-        "esnext": false
+        "esnext": true
       }
-    ]
+    ],
+    "rules": {
+      "promise/prefer-await-to-then": "off"
+    }
   },
   "repository": {
     "type": "git",

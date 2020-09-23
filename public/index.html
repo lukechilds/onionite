@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Onionite</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="theme-color" content="#895CA1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+  <body>
+
+    <header role="banner">
+      <div class="wrapper clearfix">
+        <a class="title" href="/"><h1><i class="icon-tor"></i> Onionite</h1></a>
+        <div class="search">
+          <label>
+            <span class="hidden">Search</span>
+            <input type="search" placeholder="Search..." name="s" id="searchinput" onchange="searchInputChanged(document.getElementById('searchinput').value);">
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" role="main" class="wrapper">
+      <div id="offlinemsg" style="position: absolute;  font-size: 1.5rem; width: 100%; left: 0px;background: red none repeat scroll 0% 0%;top: -10rem;z-index: 999;text-align: center;padding: 1.75rem 0;overflow: hidden;max-height: 5rem;transition: all ease 2s;">
+        Error: You are offline, but the next page is not cached and can therefore not be displayed.
+      </div>
+      <div class="offline" id="offline" style="margin-bottom: 2rem;">
+        <h2>No connection</h2>
+        <div class="content" id="offlinecontent">
+          <p>There seems to be an issue connecting to the server.</p>
+        </div>
+      </div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nickname</th>
+          <th>Bandwidth</th>
+          <th>Uptime</th>
+          <th>Country</th>
+          <th>Flags</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody id="nodeList">
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+        <tr>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>Loading...</td>
+          <td>...</td>
+          <td>Loading...</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination clearfix">
+    <button class="prev" id="prev" onclick="lastPage();" style="display:none;background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Prev</span>‹</button>
+    <button class="next" id="next" onclick="nextPage();" style="background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Next</span>›</button>
+    
+  </div>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="wrapper">
+        <span id="version">v1.0.0</span>
+        <span class="divider">-</span>
+        <a href="/about.html">About</a>
+        <span class="divider">-</span>
+        <a target="_blank" href="//github.com/lukechilds/onionite">Source code</a>
+        <span class="divider">-</span>
+        <a target="_blank" href="//github.com/lukechilds/onionite/issues">Report a bug</a>
+        <div class="me">
+          A thing by <a target="_blank" href="//github.com/lukechilds">@lukechilds</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>window.cacheDate=false;</script>
+    <script src="/assets/enhancements-vercel.js" async></script>
+    <script src="index.js"></script>
+    <script src="nodeinfo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Onionite</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="theme-color" content="#895CA1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/assets/style.css?v2">
+  </head>
+  <body>
+
+    <header role="banner">
+      <div class="wrapper clearfix">
+        <a class="title" href="/"><h1><i class="icon-tor"></i> Onionite</h1></a>
+        <form role="search" class="search" action="/">
+          <label>
+            <span class="hidden">Search</span>
+            <input type="search" placeholder="Search..." name="s">
+          </label>
+        </form>
+      </div>
+    </header>
+
+    <main role="main" class="wrapper">
+      <h2>About</h2>
+      <div class="content">
+        <p>This application allows you to  view information on the individual nodes that make up the Tor network. All information is provided by the <a target="_blank" href="//onionoo.torproject.org">Onionoo</a> API. You can follow development on <a target="_blank" href="//github.com/lukechilds/onionite">GitHub</a>.</p>
+        <p>Tor is free software for enabling anonymous communication. If you've never used Tor before, it's really easy to use, just download the <a target="_blank" href="//torproject.org/projects/torbrowser.html">Tor Browser Bundle</a> and fire it up. If you find Tor useful, maybe consider <a target="_blank" href="//community.torproject.org/relay/">running a relay</a>.</p>
+        <p><small>"Tor" and the "Onion Logo" are registered trademarks of The Tor Project, Inc.</small></p>
+      </div>
+    
+      <div class="columns">
+    
+        <section>
+          <h3>Search</h3>
+          <div class="content">
+            <p>You can search for Tor nodes by entering part of the nickname, hash or IP address into the search bar. Filters are also accepted, they can be used by specifying an Onionoo parameter and value separated by a colon, e.g <code>country:gb</code>, <code>contact:luke</code> or <code>flag:Fast</code>.</p>
+            <p>To search for nodes in Great Britain that contain the string "jug" in their nickname you would search for <code>jug country:gb</code>.</p>
+            <p>You can also combine multiple filters, for example: <code>country:gb contact:luke</code>.
+            <p><a target="_blank" href="//onionoo.torproject.org/protocol.html#methods">View all Onionoo parameters.</a>
+          </div>
+        </section>
+    
+        <section>
+          <h3>Flag Descriptions</h3>
+          <dl class="flags">
+            <dt>Authority</dt>
+            <dd>The router is a directory authority.</dd>
+            <dt>BadExit</dt>
+            <dd>The router is believed to be useless as an exit node (because its ISP censors it, because it is behind a restrictive proxy, or for some similar reason).</dd>
+            <dt>Exit</dt>
+            <dd>The router is more useful for building general-purpose exit circuits than for relay circuits. The path building algorithm uses this flag; see path-spec.txt.</dd>
+            <dt>Fast</dt>
+            <dd>The router is suitable for high-bandwidth circuits.</dd>
+            <dt>Guard</dt>
+            <dd>The router is suitable for use as an entry guard.</dd>
+            <dt>HSDir</dt>
+            <dd>The router is considered a v2 hidden service directory.</dd>
+            <dt>Named</dt>
+            <dd>The router's identity-nickname mapping is canonical, and this authority binds names.</dd>
+            <dt>NoEdConsensus</dt>
+            <dd>Tny Ed25519 key in the router's descriptor or microdesriptor does not reflect authority consensus.</dd>
+            <dt>Stable</dt>
+            <dd>The router is suitable for long-lived circuits.</dd>
+            <dt>Running</dt>
+            <dd>The router is currently usable.</dd>
+            <dt>Unnamed</dt>
+            <dd>Tnother router has bound the name used by this router, and this authority binds names.</dd>
+            <dt>Valid</dt>
+            <dd>The router has been 'validated'.</dd>
+            <dt>V2Dir</dt>
+            <dd>The router implements the v2 directory protocol or higher.</dd>
+          </dl>
+        </section>
+    
+      </div>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="wrapper">
+        <span id="version"></span>
+        <span class="divider">-</span>
+        <a href="/about.html">About</a>
+        <span class="divider">-</span>
+        <a target="_blank" href="//github.com/lukechilds/onionite">Source code</a>
+        <span class="divider">-</span>
+        <a target="_blank" href="//github.com/lukechilds/onionite/issues">Report a bug</a>
+        <div class="me">
+          A thing by <a target="_blank" href="//github.com/lukechilds">@lukechilds</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>window.cacheDate=false;</script>
+    <script src="/assets/enhancements-vercel.js" async></script>
+    <script src="index.js"></script>
+  </body>
+</html>
