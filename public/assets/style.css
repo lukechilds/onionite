@@ -121,6 +121,10 @@ h1 {
 .menu-button .heart {
   fill: #b24592;
   transition: fill 0.2s ease;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
 }
 .menu-button:hover .heart {
   fill: #f15f79;
