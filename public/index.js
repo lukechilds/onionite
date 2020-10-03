@@ -11,7 +11,7 @@ let searching = false;
 let searchInput;
 
 function element(type) {
-	return element(type);
+	return document.createElement(type);
 }
 
 // Run callback when DOM is ready
