@@ -26,7 +26,6 @@ module.exports = (request, response) => {
 		query.offset = (query.limit * query1.slice(1)) - query.limit;
 	}
 
-	// eslint-ignore-next-line
 	let i = 0;
 	tor.listNodes(query)
 		.then(nodes => {
