@@ -205,7 +205,7 @@ function searchInputChanged(input) {
 	  <div class="content" id="offlinecontent"> \
 		<p>There seems to be an issue connecting to the server.</p> \
 	  </div> \
-	</div><table><thead><tr><th>#</th><th>Nickname</th><th>Bandwidth</th><th>Uptime</th><th>Country</th><th>Flags</th><th>Type</th></tr></thead><tbody id="nodeList"></tbody></table> \
+	</div><h2 id="heading">Top nodes by consensus weight</h2><table><thead><tr><th>#</th><th>Nickname</th><th>Bandwidth</th><th>Uptime</th><th>Country</th><th>Flags</th><th>Type</th></tr></thead><tbody id="nodeList"></tbody></table> \
 	<div class="pagination clearfix"> \
 	<button class="prev" id="prev" onclick="lastPage();" style="display:none;background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Prev</span>‹</button> \
 	<button class="next" id="next" onclick="nextPage();" style="background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Next</span>›</button> \
@@ -218,12 +218,15 @@ function searchInputChanged(input) {
 		} else {
 			document.querySelector('#prev').style.display = '';
 		}
+
+		document.querySelector('#heading').innerHTML = '<h2 id="heading">Top nodes by consensus weight</h2>';
 	} else {
 		searching = true;
 		currentSearchPage = 1;
 		searchInput = input;
 		getNodes('p' + currentPage + ':s' + input);
 		document.querySelector('#prev').style.display = 'none';
+		document.querySelector('#heading').innerHTML = `Search results for "${input}":`;
 	}
 }
 
@@ -347,6 +350,8 @@ const favouriteNodes = {
 					} catch {
 						showNode(heartedNodes[node3], 1);
 					}
+
+					find('.menu').classList.remove('active');
 				});
 			});
 			menu.append(ul);
@@ -472,7 +477,7 @@ function createHeader(node, page) {
 		  <div class="content" id="offlinecontent"> \
 			<p>There seems to be an issue connecting to the server.</p> \
 		  </div> \
-		</div><table><thead><tr><th>#</th><th>Nickname</th><th>Bandwidth</th><th>Uptime</th><th>Country</th><th>Flags</th><th>Type</th></tr></thead><tbody id="nodeList"></tbody></table> \
+		</div><h2 id="heading">Top nodes by consensus weight</h2><table><thead><tr><th>#</th><th>Nickname</th><th>Bandwidth</th><th>Uptime</th><th>Country</th><th>Flags</th><th>Type</th></tr></thead><tbody id="nodeList"></tbody></table> \
 		<div class="pagination clearfix"> \
 		<button class="prev" id="prev" onclick="lastPage();" style="display:none;background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Prev</span>‹</button> \
 		<button class="next" id="next" onclick="nextPage();" style="background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Next</span>›</button> \
