@@ -68,7 +68,7 @@ function prettyBytes(number) {
 }
 
 function getNodes(code) {
-	fetch('https://onionite-test.vercel.app/api/listing/' + code)
+	fetch(`/api/listing/${code}`)
 		.then(response => response.json())
 		.then(data => addNodes(data))
 		.catch(error => {
@@ -146,7 +146,7 @@ function generateNodeInfo(node) {
 }
 
 function getVersion() {
-	fetch('https://onionite-test.vercel.app/api/version/version')
+	fetch("/api/version")
 		.then(response => response.text())
 		.then(data => setVersion(data));
 }
@@ -245,7 +245,7 @@ function isReachable(url) {
 
 function handleConnection() {
 	if (navigator.onLine) {
-		isReachable('https://onionite-test.vercel.app/api/listing/p0').then(online => { // This URL is never cached
+		isReachable('/api/listing/p0').then(online => { // This URL is never cached
 			if (online) {
 				document.querySelector('#offline').style.display = 'none';
 			} else {
@@ -341,7 +341,7 @@ const favouriteNodes = {
 				ul.append(li);
 				button.addEventListener('click', () => {
 					try {
-						fetch('https://onionite-test.vercel.app/api/node/' + node3)
+						fetch('/api/node/' + node3)
 							.then(response => response.json())
 							.then(data => {
 								data.node.bandwidth = data.bandwidth;
@@ -483,7 +483,7 @@ function createHeader(node, page) {
 		<button class="next" id="next" onclick="nextPage();" style="background:transparent;border:none;outline:none;color:white;font-size: 3rem;cursor: pointer;"><span class="visually-hidden">Next</span>›</button> \
 		</div>';
 		if (navigator.onLine) {
-			isReachable('https://onionite-test.vercel.app/api/listing/p0').then(online => { // This URL is never cached
+			isReachable('/api/listing/p0').then(online => { // This URL is never cached
 				if (online) {
 					document.querySelector('#offline').style.display = 'none';
 				} else {
@@ -640,7 +640,7 @@ function createColumns(node) {
 		dl2.innerHTML += '<dt>Family</dt>';
 		node.effective_family.forEach(familyMember => {
 			try {
-				fetch('https://onionite-test.vercel.app/api/node/' + familyMember)
+				fetch('/api/node/' + familyMember)
 					.then(response => response.json())
 					.then(data => {
 						const familyButton = element('button');
@@ -677,7 +677,7 @@ function showNode(node, page) {
 	  </div> \
 	</div>';
 	if (navigator.onLine) {
-		isReachable('https://onionite-test.vercel.app/api/listing/p0').then(online => { // This URL is never cached
+		isReachable('/api/listing/p0').then(online => { // This URL is never cached
 			if (online) {
 				document.querySelector('#offline').style.display = 'none';
 			} else {
