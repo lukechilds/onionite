@@ -1,5 +1,4 @@
 const express = require('express');
-const anonlytics = require('anonlytics-express');
 const nunjucks = require('nunjucks');
 const compression = require('compression');
 const nunjucksFilters = require('./lib/nunjucks-filters');
@@ -14,9 +13,6 @@ const port = process.env.port || 3000;
 if (process.env.NOW) {
 	app.enable('trust proxy');
 }
-
-// Analytics
-app.use(anonlytics());
 
 // Setup nunjucks
 nunjucks.configure('views', { express: app });
