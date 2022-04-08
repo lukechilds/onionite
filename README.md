@@ -1,12 +1,12 @@
 # Onionite
 
-> Explore the Tor network - [onionite.now.sh](https://onionite.now.sh)
+> Explore the Tor network - [onionite.lukechilds.co](https://onionite.lukechilds.co)
 
 [![Build Status](https://travis-ci.org/lukechilds/onionite.svg?branch=master)](https://travis-ci.org/lukechilds/onionite)
 
 PWA to view information on the individual nodes that make up the Tor network.
 
-[![Screenshot](https://i.imgur.com/VYaVKhm.png)](https://onionite.now.sh)
+[![Screenshot](https://i.imgur.com/VYaVKhm.png)](https://onionite.lukechilds.co)
 
 - Notable mention in the Microsoft 10K Apart competition.
 - Progressively enhances from Lynx all the way to Chrome.
