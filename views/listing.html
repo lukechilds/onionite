@@ -14,6 +14,7 @@
           <th>Country</th>
           <th>Flags</th>
           <th>Type</th>
+          <th><a href="?o=first_seen">First Seen</a></th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +33,7 @@
             {% endif %}
           </td>
           <td>{{ node.type | title }}</td>
+          <td>{{ node.first_seen }}</td>
         </tr>
         {% endfor %}
       </tbody>
