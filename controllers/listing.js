@@ -17,12 +17,16 @@ module.exports = (req, res, next) => {
 	}
 
 	tor.listNodes(query)
-		.then(nodes => res.render('listing.html', {
-			pageTitle: req.query.s ? `Search: ${req.query.s}` : false,
-			title,
-			nodes,
-			numOfNodes: query.limit
-		}))
+		.then(nodes => {
+			const ONE_HOUR_IN_SECONDS = 60 * 60;
+			res.setHeader('Cache-Control', `s-maxage=${ONE_HOUR_IN_SECONDS}, stale-while-revalidate`);
+			res.render('listing.html', {
+				pageTitle: req.query.s ? `Search: ${req.query.s}` : false,
+				title,
+				nodes,
+				numOfNodes: query.limit
+			})
+		})	
 		.catch(err => {
 			if (err.statusCode === 400 && req.query.s) {
 				err.statusMessage = 'Bad Search Query';

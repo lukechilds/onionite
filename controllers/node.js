@@ -15,6 +15,8 @@ module.exports = (req, res, next) => {
 				throw err;
 			}
 
+			const ONE_HOUR_IN_SECONDS = 60 * 60;
+			res.setHeader('Cache-Control', `s-maxage=${ONE_HOUR_IN_SECONDS}, stale-while-revalidate`);
 			res.render('node.html', {
 				pageTitle: `${data[0].type}: ${data[0].nickname}`,
 				node: data[0],
