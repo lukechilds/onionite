@@ -4,5 +4,19 @@
         "api/index.js": {
             "includeFiles": "views/*"
         }
-    }
+    },
+    "redirects": [
+        {
+            "source": "/:path(.*)",
+            "has": [
+                {"type": "host", "value": "onionite.now.sh"},
+                {"type": "host", "value": "onionite.vercel.app"},
+                {"type": "host", "value": "onionite.lukechilds.co.uk"},
+                {"type": "host", "value": "onionite.lukechilds.co"},
+                {"type": "host", "value": "onionite.lu.ke"}
+            ],
+            "destination": "https://onionite.net/:path*",
+            "permanent": true
+        }
+      ]
 }
